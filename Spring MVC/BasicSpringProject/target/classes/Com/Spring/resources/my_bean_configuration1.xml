@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<bean id = "employee2" class="Com.Spring.beans.EmployeeCollection">
+
+<property name="id" value="101"></property>
+<property name="name" value="Aravind"></property>
+<property name="salary" value="6000"></property>
+<property name="languages">
+<!--  <set>
+      <value> English</value>
+      <value>Tamil</value>
+      <value>Hindhi</value>
+      <value>Telgu</value>
+      <value>Tamil</value>
+</set>-->
+ <list>
+      <value> English</value>
+      <value>Tamil</value>
+      <value>Hindhi</value>
+      <value>Telgu</value>
+      <value>Tamil</value>
+</list>
+</property>
+</bean>
+</beans>
+ 

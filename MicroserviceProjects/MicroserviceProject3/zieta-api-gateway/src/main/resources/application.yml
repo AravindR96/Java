@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: API-Gateway
+
+
+
+
+
+
+  cloud:
+    gateway:
+      routes:
+        - id: demo12-client
+          uri: lb://demo12-client
+          predicates:
+            - Path=/hello/**
+        
+server:
+  port: 8088
+eureka:
+  instance:
+    hostname: localhost
+

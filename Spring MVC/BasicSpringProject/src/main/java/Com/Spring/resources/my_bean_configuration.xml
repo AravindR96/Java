@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<bean id = "employee" class="Com.Spring.beans.Employee"
+init-method="init" destroy-method="destroy" autowire="constructor">
+<property name="eId" value="101"></property>
+<property name="name" value="Aravind"></property>
+<property name="salary" value="6000"></property>
+<property name="Address" ref="address"></property>
+</bean>
+
+<bean id = "address" class="Com.Spring.beans.Address"
+ scope="prototype">
+<property name="AddressLine1" value=" Navalur OMR Road"></property>
+<property name="AddressLine2" value="Chennai"></property>
+
+</bean>
+<bean id = "empObject" class="Com.Spring.beans.Employee">
+
+<constructor-arg value="102"/>
+<constructor-arg value="AravindRavi"/>
+<constructor-arg value="7000"/>
+<constructor-arg  ref="address"/>
+</bean>
+
+</beans>
