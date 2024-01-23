@@ -1,0 +1,317 @@
+
+String in Java?
+
+String represent sequence of characters enclosed in double quatation.
+"NiteenSir" "iCons" ,"Zietatech" "Password123@"
+
+In java string represent sequence of characters which immutable in nature.
+Immutable is nothing but cant modifiable.
+
+String is class present in java.lang package.
+length(),toUpperCase(),toLowerCase(),charAt(index),startsWith(),endsWith()
+
+String is primitive as well as non primitive data type
+
+String name = "NiteenSir";
+int num = 10;
+
+String name = new String("NiteenSir");
+Creating String?
+
+String can be created by two ways in java
+
+1. String literal style.
+
+String name = "NiteenSir";
+
+2. String non-literal or class style.
+
+String name = new String("NiteenSir");
+
+
+public class MyString {
+
+	public static void main(String[] args) {
+		String name = "NiteenSir";
+		String trainer = "NiteenSir";
+		System.out.println(name == trainer);//true
+		System.out.println(name.equals(trainer)); //true
+		
+		String teacher = new String("NiteenSir");
+		System.out.println(teacher == name);//false
+		String programmer = new String("NiteenSir");
+		System.out.println(teacher == programmer); //false
+		
+		//Immutability
+		name = "#NiteenSir";
+		System.out.println(name == trainer);//false
+		String hashtag = "#NiteenSir";
+		System.out.println(hashtag == name);//true
+	}
+
+}
+output:
+true
+true
+false
+false
+false
+true
+==========================================================
+Methods in String Class:
+
+1. int length(): It return total number of characters present in String
+
+	String name = "NiteenSir";
+	int len = name.length(); //9
+
+	sop("NiteenSir".length());//9
+
+2. char chatAt(index):
+
+	String name = "NiteenSir";
+	sop(name.charAt(0)); //N
+
+
+3. int compareTo(String): This method is used to compare the two strings
+character by character.
+If two String are equal it return 0
+If Two String are not equal it returns ASCII / UNICODE value differece of 
+character where mismatch occur
+
+	S1-->NiteenSir
+	S2-->niteen
+If first String is greater than second String then it return positive value
+If second String is greater than first String it return negetive value
+
+4. boolean equals(String): It is also used to compare two String but return 
+true or false
+If Strings are equal it return true else it return false by considering case sensitivity
+
+boolean equalsIgnorecase(String)
+
+public class MyStringMethods {
+
+	public static void main(String[] args) {
+		String name = "NiteenSir Sir";
+		int len = name.length(); //9
+		System.out.println(len);
+
+		System.out.println("NiteenSir".length());//9
+		
+		
+		System.out.println(name.charAt(0)); //N
+		System.out.println(name.charAt(6));//Throw Exception StringIndexOutOfBoundsException
+		
+		System.out.println(name.substring(6));
+		System.out.println(name.substring(0, 6));
+		String s1 = "Sir";
+		System.out.println(name.indexOf(s1));
+		System.out.println(name.lastIndexOf(s1));
+		
+		System.out.println(name.toUpperCase());
+		System.out.println(name.toLowerCase());
+		
+		String s2 = "Asha"; //A-65
+		String s3 = "asha"; //a -97
+		System.out.println(s2.compareTo(s3));
+		System.out.println(s3.compareTo(s2));
+		
+		System.out.println(s2.compareToIgnoreCase(s3));
+		System.out.println(s2.equals(s3));
+		System.out.println(s2.equalsIgnoreCase(s3));
+		
+	}
+
+}
+Output:
+Niteen
+6
+10
+NITEENSIR SIR
+niteensir sir
+-32
+32
+0
+false
+true
+=====================================================================
+
+	How to represent mutable String??
+
+	My String must be modifiable ie can be change.
+
+StringBuffer and StringBuilder both classes are used to represent 
+String with mutable in nature. That we can modify original string
+
+StringBuffer is thread safe class ie methods of StringBuffer are synchronied
+StringBuilder is not thread safe class ie methods of StringBuilder are not synchronized
+
+
+	StringBuffer sb = new StringBuffer("NiteenSir");
+						16+9=25
+
+1.	sb.append("Java Trainer");
+	sb---NiteenSir Java Trainer
+
+2. sb.insert(0,"#");
+
+3. sb.delete(startIndex,endIndex);
+
+	sb.delete(7,10);
+
+public class MyStringMutable {
+
+	public static void main(String[] args) {
+		StringBuffer sb = new StringBuffer("NiteenSir");
+		System.out.println(sb.capacity());
+		System.out.println(sb.length());
+		System.out.println(sb);
+		sb.append(" Corporate Java Trainer");
+		System.out.println("After Modification");
+		System.out.println(sb.capacity());
+		System.out.println(sb.length());
+		System.out.println(sb);
+		
+		StringBuffer sb1 = new StringBuffer("NiteenSir");
+		System.out.println(sb == sb1);
+		
+		sb.insert(0,"#");
+		System.out.println(sb.capacity());
+		System.out.println(sb.length());
+		System.out.println(sb);
+		
+		sb.delete(7,10);
+		System.out.println(sb.capacity());
+		System.out.println(sb.length());
+		System.out.println(sb);
+		
+		sb.reverse();
+		System.out.println(sb);
+	}
+
+}
+
+
+
+StringBuilder:
+
+StringBuilder sb = new StringBuilder("NiteenSir");
+
+
+public class MyStringBuilder {
+
+	public static void main(String[] args) {
+		StringBuilder sb = new StringBuilder("NiteenSir");
+		System.out.println(sb.capacity());
+		System.out.println(sb.length());
+		System.out.println(sb);
+		
+		sb.append(" Corporate Java Trainer");
+		System.out.println(sb.capacity());
+		System.out.println(sb.length());
+		System.out.println(sb);
+	}
+
+}
+
+	String----> StringBuffer------StringBuilder
+
+
+
+	1.Accept two String from user and check second String starts with first
+string or not
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,203 @@
+
+Flow Control Statement:
+
+	1.Conditional Statements:
+	if
+	if-else
+	if-else ladder
+	nested if
+
+	switch
+
+	2. Loop Control Statement:
+	for
+	while
+	do-while
+	Advanced for (Array or Collection)
+	forEach()
+
+
+	if(condition){
+
+		//if - body
+	}
+	-----
+	-----
+	-----
+
+	
+	if(condition){
+
+		//if - body
+	}else{
+
+		//else - body
+	}
+	-----
+	-----
+	-----
+
+
+	if(cond1){
+		//if -1-body
+	}else if(cond2){
+		//if-2-body
+	}else if(cond3){
+		//if-3-body
+	}else if(cond4){
+		//if-4-body
+	}else{
+		//else-body
+	}
+	---
+	---
+
+
+	Nested if-else
+
+	
+	if(cond1){//card valid
+
+		if(cond2){//Valid PIN
+
+			if(cond3){ //Valid amount
+				withdraw
+			}else{
+				Insufficient Balance
+			}
+		}else{
+			//invalid PIN
+		}
+	}else{
+		//Not valid card
+	}
+	-----
+	----
+
+
+	//Write program to accept marks of six subject  from user
+	and display the result
+
+	0-35--->Fail
+	35-45--->Pass
+	45-55--->Second class
+	55-60 --->Higher second class
+	60-70--->First class
+	70-100--> Distinction
+
+	Invalid condition
+
+
+	Write Java program to accept rate and quantity from user and display 
+	the final amount to pay after deducting discount
+
+	if amount is
+	0-1000--> 0% discount
+	1000-2000--> 5%
+	2000-3000---> 10%
+	3000-4000--->15%
+	4000 and above 25%
+
+	
+	switch:
+
+	int ch = 1;
+	switch(ch){
+
+		case 1:---
+			-----
+			-----break;
+		case 2:-----
+			----
+			---break;
+		case 3:-----
+			-----
+			----break;
+
+		---
+		---
+		default:---
+			---
+
+
+	}
+	---
+
+	Loop Control Statement:
+		for
+		while
+		do-while
+		
+
+	Hello Everyone--500times
+
+		sop("Hello Everyone");
+		sop("Hello Everyone");
+		sop("Hello Everyone");
+		sop("Hello Everyone");
+		sop("Hello Everyone");
+		sop("Hello Everyone");
+		sop("Hello Everyone");
+		sop("Hello Everyone");
+		sop("Hello Everyone");
+		sop("Hello Everyone");
+		
+		for(initilization;condition;increment/Decrement){
+
+
+		}
+		for(int i = 1; i < = 5000; i++){
+			sop("Hello Everyone");
+		}
+
+		int i = 1;
+		for(; i < = 5000;){
+			sop("Hello Everyone");
+			 i++;
+		}
+
+
+		while(condition){
+			-----
+			-----
+			-----
+
+		}
+		
+		int num = 10999;
+
+		while(num != 0){
+
+			int rem = num % 10;
+			num = num / 10;
+			cnt++;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

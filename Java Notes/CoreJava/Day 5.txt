@@ -1,0 +1,205 @@
+
+	Loop Control Statement:
+		for
+		while
+		do-while
+
+	do{
+		//body
+		----
+		----
+
+	}while(condition);
+
+	----
+	----
+
+	Encapsulation:
+
+	Wrapping data and method together in single unit(Class) is nothing but
+encapsulation.
+
+	Capsule--->contains many medicines
+
+	-We can make class as read only or write only
+	-control over data
+	-Data hiding
+
+	class Employee{
+		private int empId;
+		private String name;
+		private double salary;
+		public void display(){
+			sop(empId + " " + name + " " + salary)
+
+		}
+		public void setSalary(double sal){
+			if(sal >= 10){
+				salary = sal;
+			}	
+		}
+		
+	}
+
+emp.setSalary(5);
+
+	public Getter and Setter Methods:
+
+
+Getter methods: are used to get values of private members outside the class
+Setter Methods: are used to set values of private members from outside the class
+
+class Employee{
+		private int empId;
+		private String name;
+		private double salary;
+		public void display(){
+			sop(empId + " " + name + " " + salary)
+
+		}
+		public void setEmpId(int empId){
+			this.empId = empId;
+		}
+		public void setName(String name){
+			this.name = name;
+		}
+		public void setSalary(double salary){
+			this.salary = salary;	
+		}
+		public int getEmpId(){
+			return empId;
+		}
+		public String getName(){
+			return name;
+		}
+		public double getSalary(){
+			return salary;
+		}
+		
+	}
+
+this keyword: It refers to the current invoking object
+
+current invoking object means because of which object execution control comes
+to that method.
+
+Type Casting: Conversion of one type of data into other type.
+
+	int----> double------> Widening
+	double--->int-------> Narrowing
+
+
+Widening: Conversion of smaller type of data into bigger type.
+In java widening will get happened automatically.
+
+	int num = 10;
+
+	double salary = num;//int ---> double
+byte--->short--->int--->long--->float--->double
+
+Narrowing: Conversion of bigger type of data into smaller type.
+In java narrowing will not hapened automatically.
+	double sal = 90.7;
+
+	int num1 = (int)sal;
+
+double--->float--->long--->int--->short-->byte
+
+	Method Overloading:
+
+
+	Scanner sc = new Scanner(System.in);
+
+		sc.next();//String
+		sc.nextInt();//int
+		sc.nextDouble();
+
+		br.readLine();//int,String double char,float
+
+
+Method Overloading:Within class we can have more than one method with
+exactly same name but different signature then mechanism is called as 
+method overloading and methods are called as Overloaded methods.
+Signature
+	number of parameters
+	Data type of parameters
+	Sequence of parameters
+	must be different
+
+So while overloading there should not be Ambuguity or Confusion.
+If exact match is not found then it tries conversion
+
+class Maximum{
+
+	public void maximum(int num1 , int num2){
+		if(num1 > num2){
+			sop(num1);
+		}else if(num2 > num1){
+			sop(num2);
+		}else{
+			sop("Equal");
+		}
+	}
+	public void maximum(double num1, double num2,double num3) {
+		if (num1 > num2 && num1 > num3) {
+			System.out.println(num1);
+		} else if (num2 > num1 && num2 > num3) {
+			System.out.println(num2);
+		} else if(num3 > num1 && num3 > num2){
+			System.out.println(num3);
+		}else {
+			System.out.println("Equal");
+		}
+	}
+	public void maximum(String s1, String s2) {
+		
+		
+	}
+}
+
+
+Maximum obj = new Maximum();
+obj.maximum(10,20);
+obj.maximum(10.5,20.5);
+
+
+Note: Method Overloading is used to improve the readibility of code.
+
+Compile time polymorphism
+Call to the overloaded methods is resolved at compile time only
+Return type of method does not particiate in method overloading+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

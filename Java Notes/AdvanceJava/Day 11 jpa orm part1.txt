@@ -1,0 +1,239 @@
+
+	JPA(ORM):
+
+	What are the problems with JDBC?
+
+While persisting data using JDBC following problems faced
+
+1. Load and Register drivers
+2. Establish the connection with database
+3. Write sql query
+4. Execute SQL query
+5. Close the connection
+6. Handle exception
+7. Create tables
+
+
+By using JPA/(ORM) no need to above tasks so all problems will be overcomed
+
+
+	em.persist(emp);
+	em.merge(emp);
+All these problems will be solved using ORM
+
+What is ORM:
+
+ORM stands for Object Relational Mapping.
+
+Relational database-- MySql/Postgresql/oracle----Tables and columns
+
+In simple language Object Relational mapping is nothing but
+Java Object and Database  Table Mapping
+So orm act as bridge between object and relational model
+
+Advantage:
+No need to
+-Load and register driver
+-connect with database
+-create tables
+-write sql query
+	@Entity
+	class Employee{	--------->	Database----employee (table)
+		@Id empId;		empid	empname	salary
+		empName;		101	Ram	60
+		salary;			102	Sham	65
+					103	Jam	75
+	}
+
+
+	What is JPA?
+JPA stands for Java Persistance API
+It is specifications or rules that must be followed to implemnt ORM
+JPA have the set of rules that must be folled by ORM tools.
+Following are the tools which follow JPA specifications.
+-Hibernate
+-TopLink
+-EclipseLink
+-iBatics
+-OpenJPA
+
+In our course we are using Hibernate Provider
+
+What is Entity Class?
+
+It is simple java class like bean class.
+It have private data members and public getter and setter methods.
+with this we use some annotations like
+@Entity
+@Id
+@Table
+@Column
+@Tempral etc
+This class object is used to perform CRUD operation without sql query.
+The entity refers to the logical collection of datathat can be stored or
+retrived as whole from database.
+
+This entity class will be maped to database tables.
+The properties/data members of this class will be mapped to the database table columns
+
+If database table name and class name is same no need to use @Table
+
+	@Entity
+	class Employee{	--------->	Database----employee (table)
+		@Id 
+		empId;		     empid(pk) empname  salary
+		empName;		101	Ram	60
+		salary;			102	Sham	65
+					103	Jam	75
+	}
+
+
+	@Entity
+	@Table(name = "employee")
+	class EmployeeEntity{	--------->	Database----employee (table)
+		@Id 
+		@Column(name="id")
+		empId;	
+	       	@Column(name="name")	id(pk) name  salary
+		empName;		101	Ram	60
+		salary;			102	Sham	65
+					103	Jam	75
+
+		@Tempral(TempralType.Date)
+		private Date doj;
+		//setter and getter
+	}
+
+	To execute JPA Program:
+
+Here under JPA following are the API used
+
+EntityManagerFactory
+EntityManager
+Entity
+
+
+EntityManagerFactory represents the programatic connection. It reads information
+present in persistance.xml file by mapping the PersistanceUnitName
+
+persistance.xml file should present in META-INF folder under the classpath
+
+EntityManager is created from EntityManagerFactory.
+It used to perform CRUD operations
+
+
+EntityManagerFactory emf = Persistance.createEntityManagerFactory("unit1");
+EntityManager em = emf.createEntityManager();
+
+Insert/update/delete Operation:
+em.getTransaction().begin();
+//insert/update/delete
+em.persist(emp);
+em.getTransaction.commit();
+
+
+persistance.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="unit1">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>com.icons.entity.EmployeeEntity</class>
+		<properties>
+			
+			<!-- Database connection settings -->
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="root" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/dbfinserv" />
+			
+			<!-- SQL dialect -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect" />
+			
+			<!-- Echo all executed SQL to stdout -->
+			<property name="hibernate.show_sql" value="true" />
+			
+			<!-- Drop and re-create the database schema on startup -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			
+		</properties>
+	</persistence-unit>
+</persistence>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@Tempral--->It is used to set the date and time
+It is used to convert java.util.Data to java.sql.Date
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

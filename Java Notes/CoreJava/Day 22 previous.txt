@@ -1,0 +1,241 @@
+throws
+throw
+Custom Exception OR User Defied Exception
+try with resource
+
+throws clause:
+
+Exception Propogation:
+
+
+method1----->method2-------->method3-------->method4
+
+UnChecked Type of Exception are propogated automatically from one method 
+to another method.
+
+Checked kind of exceptions will be not propogated from one method to another
+automatically.
+
+
+throws clause is used to declare exceptions so that we dont need to handle
+exceptions in that method
+
+
+	public void show()throws ExceptionType1,ExceptionType2,...{
+		no need to handle exception here
+	}
+
+
+	public class DemoThrows {
+	public void display() {
+		String name = null;
+		System.out.println(name.length());
+	}
+	public void show()throws  InterruptedException  {
+		Thread.sleep(1000);
+	}
+}
+
+
+public void show()throws Exception  {
+	Thread.sleep(1000);
+}
+===============================================================
+
+throw clause:
+
+
+int div = 10 / 0;//Automatically it raised ArithmeticException
+
+String name = null;
+name.length();//Automatically it raised NullPointerException
+
+
+throw clause is used to
+
+1. rethrow the exception
+2. User Defined Exception will be get raised by using throw
+Note: Standard exceptions will be get raised automatically but user defined
+exceptions has to raised using throw clause.
+
+try{
+
+}catch(Exception e){
+	try{
+	throw e;//Rethrowing exception
+	}(Exception e){
+
+	}
+}
+
+
+ throw new UserDefinedException();
+
+	CartEmptyException e = new CartEmptyException();
+	throw e;
+
+	OR 
+
+	throw new CartEmptyException(); 
+
+Where CartEmptyException is user defined exception class.
+===============================================================================
+
+	Custom Exception OR User Defined Exception:
+
+What??
+
+These are the exceptions developed according to business logic.
+Such as CartEmptyException.
+
+EvenException
+OddException
+
+NotValidAgeException
+
+Steps Of Using Custom Exception:
+
+step1: Create user defined exception class which must extends Exception
+class or RuntimeException
+
+public class EvenException extends Exception{//Checked
+	public EvenException(String message){
+		super(message);
+	}
+}
+
+public class OddException extends RuntimeException{//UnChecked
+	public OddException(String message){
+		super(message);
+	}
+}
+
+step2: Handle User defined exception in Logical Class.
+
+public class EvenOdd{
+	public void check(int num){
+		try{
+			if(num % 2 == 0){
+				throw new EvenException("Even Exception Raised");
+			}else{
+				throw new OddException("Odd Exception Raised");
+			}
+		}catch(EvenException e1){
+				//System.out.println(e1);
+			System.out.println(e1.getMessage());
+			e1.printStackTrace();
+		}catch(OddException e2){
+				System.out.println(e2);
+		}
+	}
+
+
+}
+
+
+=============================================================================
+
+	try with resource:
+
+	try(We can open resouces){
+
+
+	}catch(Exception e){
+
+	}
+
+ex.
+	try(Scanner sc = new Scanner(System.in)){
+
+
+	}catch(Exception e){
+
+	}
+
+It is efficient way to manage resources.
+The resources must implements Closable interface.
+So developer dont need to explicitely close the resources.
+It simply alternative to finally clause.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

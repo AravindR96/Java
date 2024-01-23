@@ -1,0 +1,242 @@
+
+	Display Elements of Collection:
+
+	List<String> list = new ArrayList<String>();
+
+	list.add("Ram");
+	list.add("Sham");
+	list.add("Jam");
+	list.add("Tam");
+
+	sop(list);
+
+[Ram,Sham,Jam,Tam]
+
+list.get(2);//Jam
+
+	1. Use Simple For:
+
+	for(int i = 0; i < list.size();i++){
+		String name = list.get(i);
+		Sop(name);
+	}
+
+	2. Advanced for:
+
+	for(String name:list){
+		sop(name);
+	}
+
+	3. Using Iterator:
+	It is interface present in collection framework which is used to traverse
+within collection ie Used to display each element of collection.
+By using Iterator we can traverse in forward direction only.
+
+	Using Iterator:
+
+	Iterator itr = list.iterator();
+By default iterator will points to the start position.
+
+	Methods:
+	1.boolean hasNext(); : This method is used to check weather element is
+present at next position or not. If yes it returns true else it returns false.
+
+	2. Object next(); : This method returns the element in object formate 
+where iterator is present.
+
+	String name =(String) itr.next();//Convert Object to String
+
+	while(itr.hasNext()){
+		String name = (String) itr.next();
+		Sop(name);
+	}
+ex.
+public static void myVector() {
+		
+		Vector<String> list = new Vector<String>();
+	
+		list.add("Ram");
+		list.add("Sham");
+		list.add("Jam");
+		list.add("Tam");
+		//Iterator itr = list.iterator();//non-generic style
+		Iterator<String> itr = list.iterator();//Generic Style
+		while(itr.hasNext()) {
+			//String name = (String)itr.next();//Convert Object to String type
+			String name =itr.next();
+			System.out.println(name);
+		}
+		
+	}
+
+==============================================
+
+	ListIterator: 
+It is interface present in collection framework used to traverse in collection.
+It is present in java.util package. 
+It can traverse in forward as well as backward  direction. 
+By default cursor will points to the start.
+It is used with collection classes that implements List interface.
+
+Using ListIterator:
+
+ListIterator litr = list.listIterator();
+
+Methods:
+
+1. boolean hasNext():
+2. Object next();
+Both methods similler to Iterator.
+
+3. boolean hasPrevious(): It is used to check weather element is prsent at
+previous position or not. If yes it return true else it return false.
+
+	while(litr.hasPrevious()){
+
+	}
+
+4. Object previous(): This method returns element from previous position.
+	String name = litr.previous();
+Ex.
+public static void myVector() {
+		
+		Vector<String> list = new Vector<String>();
+	
+		list.add("Ram");
+		list.add("Sham");
+		list.add("Jam");
+		list.add("Tam");
+		
+		System.out.println("Using ListIterator");
+		ListIterator<String> litr = list.listIterator();
+		while(litr.hasNext()) {
+			String name = litr.next();
+			System.out.println(name);
+		}
+		System.out.println("Reverse order");
+		while(litr.hasPrevious()) {
+			String name = litr.previous();
+			System.out.println(name);
+		}
+		
+	}
+
+
+Using ListIterator
+Ram
+Sham
+Jam
+Tam
+Reverse order
+Tam
+Jam
+Sham
+Ram
+==================
+Working with User defined objects:
+
+	public class Employee{
+		private int empId;
+		private String empName;
+		private double salary;
+		//Getter and Setter
+		//toString
+		//Constructor
+
+	}
+
+	Employee emp1 = new Employee(101,"Ram",60);
+	Employee emp2 = new Employee(102,"Sham",65);
+	Employee emp3 = new Employee(103,"Jam",75);
+	Employee emp4 = new Employee(104,"Tam",55);
+
+	List<Employee> list = new ArrayList<Employee>();
+	list.add(emp1);
+	list.add(emp2);
+	list.add(emp3);
+	list.add(emp4);
+	for(Employee emp:list){
+		sop(emp);
+	}
+
+Note: if we try to add duplicate user defined object is set it will allow.
+If we dont wants to add duplicate user defined objects in set or map we should
+use hashcode() and equals() from Object class in class which objects we are storing
+in set or map.
+Why duplicate user defined objects are allowed in set or map??
+
+To understand this we need understand how set store data??
+
+	Set<String> set = new HashSet<String>();
+
+	set.add("Ram");
+	set.add("Sham");
+	set.add("Jam");
+	set.add("Ram");
+
+HashSet uses hashtable to store data
+
+	key(Hashcode)  value
+	
+	81918		Ram
+	2575713		Sham
+	4444		Jam
+
+
+
+		Employee emp1 = new Employee(101,"Ram",60);
+		Employee emp2 = new Employee(102,"Sham",65);
+		Employee emp3 = new Employee(103,"Jam",75);
+		Employee emp4 = new Employee(104,"Tam",55);
+		Employee emp5 = new Employee(104,"Tam",55);
+
+		Set<Employee> set = new HashSet<Employee>();
+		set.add(emp1);
+		set.add(emp2);
+		--
+		set.add(emp4);
+		set.add(emp5);
+Here both emp4 and emp5 have different reference of different objects
+having same data.
+When it is added into set it will consider reference not actual record
+References are different so hashcode will be different. Hence it adding that 
+duplicate records.
+
+Here to avoid the duplication emp4 and emp5 should return same hashcode.
+Hence to write hashcode code logic we have to override hashCode() and equals()
+in Employee class.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

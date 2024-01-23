@@ -1,0 +1,161 @@
+
+Compilation and Execution of Java program:
+
+ step1: Save file with AnyName.java extension
+One java file should contain only one class
+Its recomnded that name of file should similer name of class
+
+public class Welcome{
+	public static void main(String args[]){
+		sop("Welcome in Java World");
+	}
+}
+
+Welcome.java
+
+Step2: Compilation
+
+	javac fileName.java
+
+	javac Welcome.java
+		Welcome.class  (Bytecode-->optimized)
+
+step3: Execution/Run
+
+	java ClassNameHaving main method
+	java Welcome
+
+	O/P :Welcome in Java World
+
+Method:
+
+	<Access Modifier> <Return Type> methodName(<Data Type> par1, <Data Type> par2,...){
+
+	}
+
+	<Access Modifier>---->public,private,protected,default
+	<Return Type>---> Data Type of return value
+		return value;
+
+		void ---Method not returning any value
+	
+
+	methodName---Meaning ful name of method
+
+
+	public int display(){
+		sop();
+		return 0;
+	}
+
+	emp1.display();
+
+
+	public void addition(int num1, int num2){
+		sop(num1 + num2);
+	}
+
+
+	emp1.addition(10,20);//Calling
+
+	public int division(int num1, int num2){
+		int div = num1 / num2;
+		return div;
+	}
+
+	int d = emp1.division(10,5);
+		sop(d)
+
+
+
+View/presen	Contoller		Service		Dao	Database
+
+	Data Types:
+
+Primitive/ Standard 
+	boolean------> true/false------> 1bit
+	Integer
+		byte----------		1byte		-128 to 127
+		short			2byte		-32768 to 32,767
+		int			4byte		-2^31
+		long			8byte		-2^63
+
+	Floating
+		float			4byte
+		double			8byte
+
+	Character
+		char			2byte
+
+Non-Primitive: All Classes/Intrface/Enums/ Array
+		String     "Ram" "Jam"
+		Employee
+		Addition
+
+
+
+	Write program to perform swapping without using third variable.
+
+	Conditional Statement:
+
+	Condition---
+	
+	if
+	if-else
+	if-else ladder
+	Nested if
+
+	switch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

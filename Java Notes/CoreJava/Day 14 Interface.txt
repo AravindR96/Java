@@ -1,0 +1,172 @@
+
+	interface:
+It is user defined data type which specifies behaviour that must implement
+by classes.
+Methods in interface are by default public and abstract.
+Since Java 8 interface contain abstract as well as non abstract methods.
+That means interface can have methods with body.
+That non abstract abstract methods can be default method or static method
+We can not create object of interface but we can create variable of interface type.
+interface achieve 100% abstraction
+abstract class can achieve 0-100% abstraction
+
+	public interface InterfaceName{
+		//abstract method
+		//non-abstract method(default and static methods)
+		//final static variables
+
+	}
+
+	public interface Operation{
+		void addition(int num1 , int num2);
+	}
+
+interface have to implement by class using implements keyword.
+If interface is implemented by class then class have to define(provide body) all abstract
+methods present in it otherwise class have to declare as abstract class.
+Reference variable of type interface can refer object of class which 
+implements it.
+	class Demo implements Operation{
+		public void addition(int num1 , int num2){
+			---
+			---
+		}
+	}
+
+	//Operation ref = new Operation();//ERROR
+	Operation ref;
+	ref = new Demo();
+	ref.addition(10,20);
+
+By using interface variable we can invoke only methods from interface.
+Original methods of that class can not be called by using interface variable.
+
+Note1: Can one interface is implemented by more than one class?
+Answer is YES.
+
+
+class Demo1 implements Operation{
+	public void addition(int num1, int num2){
+
+	}
+}
+
+		  Operation (Interface)
+	
+	Demo(Class)			Demo1(Class)
+
+
+Uses:
+-interface is used to achieve runtime polymorphism
+-interface is used to achieve abstraction.
+
+Demo-------------->obj
+			|	Operation ref.addition(10,20);
+Demo1------------->obj1
+Note2: Can One class implement more than one interfaces???
+Answer is YES.(Multiple Inheritance)
+
+	Operation(Interface) 	Operation1(Interface)
+			
+		 	Demo
+
+
+	class Demo implements Operation, Operation1{
+		//Define abstract methods from both interfaces.
+	
+	}
+
+Note3: Can interface be extended???
+Answer is YES.
+
+One interface can extends another interface.
+ie Parent Child relationship between interfaces is possible in java.
+
+interface Parent{
+	void display();
+}
+
+interface Child extends Parent{
+	void show();
+}
+
+
+class Demo implements Child{
+//It have to define all abstract methods from Parent as well as Child interface
+//define display() and show()
+}
+
+Note4: Can one interface extends more than one interfaces.
+can Multiple inheritance is possible in interface inheritance??
+Answer is YES.
+All are interfaces
+
+	Parent1		Parent2
+
+
+		Child
+
+interface Parent1{
+
+}
+interface Parent2{
+
+}
+interface Child extends Parent1,Parent2{
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

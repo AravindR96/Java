@@ -1,0 +1,168 @@
+
+Parent Reference Variable
+Child Reference Variable
+
+Dynamic Method Dispatch(Method Overriding)
+
+final Keyword
+abstract keyword
+
+
+Parent Class Reference Variable:
+Parent Class Reference Variable can refere object of Parent class as well as
+object of child class.
+Parent ref = new Parent();
+ref = new Child();
+
+Child ClassReference Variable:
+
+Child Class Reference variable can refere object child class only
+
+Child ref = new Child();
+
+	ref = new Parent();//ERROR
+
+Dynamic Method Dispatch(Method Overriding):
+
+Within method overriding if we call overriden methods using parent class
+reference variable then the methods will be caled according to object reference
+not by variable type.
+Hence if reference variable refering Child class object it invokes child class
+version of overriden method and if it referes parent class object then
+it invokes parent class version of that method.
+Hence it is used to achieve run time polymorphism.
+
+class Parent{
+	public void display(){
+		//Parent
+	}
+	public void show(){
+
+	}
+
+}
+class Child extends Parent{
+	public void display(){
+		//Child
+	}
+	public void putData(){
+
+	}
+
+}
+Parent ref;
+ref = new Child();
+ref.display();//
+ref.show();
+ref.putData();
+
+ref = new Parent();
+ref.disply();
+
+
+final Keyword:
+
+I applicable for
+1.final Variable
+2.final Method
+3.final class
+
+1.final Variable: If we declare variable as final then it becomes constant.
+Value of final variable cant be changed.If someone try to change value compiler 
+gives error.
+
+final int num = 10;
+num = 20;//ERROR
+num++;//ERROR
+++num;//ERROR
+
+2. final method: Parent class method can be declare as final by using final keyword
+Final method can not be override by child class.
+class Parent{
+	final public void display(){
+
+	}
+}
+
+class Child extends Parent{
+	final public void display(){//ERROR
+
+	}
+}
+
+3. final class:
+Class can be declare as final using final keyword.
+If class is final it is not available for inheritance.
+If some class try to inherit final class compiler gives error.
+
+final class Parent{
+
+}
+
+class Child extends Parent{//ERROR
+
+}
+==============================================
+
+
+	abstract keyword:
+
+1. abstract method
+2. abstract class
+
+1. abstract method:
+It is method without body(implementation).
+So only declaration of method is available in class.
+
+
+abstract <AS> <RT> methodName();
+
+abstract public void display();
+
+2. abstract class:
+
+abstract class ClassName{
+
+
+}
+Following are the rules of using abstract class.
+
+1. We can not create object of abstract class. 
+2. To declare abstract class use abstract keyword.
+3. If class contain abstract method then it must abstract class.
+4. If class is abstract no need to have methods as abstract.
+5. It act as base/parent class for other classes.
+6. If child class inherits abstract class then it have to override all abstract
+methods from abstract parent otherwise declare Child as abstract class
+
+It is used to achieve absraction mechanism.
+It is also used to achieve run time polymorphism.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

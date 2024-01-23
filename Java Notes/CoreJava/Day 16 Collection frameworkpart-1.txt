@@ -1,0 +1,139 @@
+	
+	Collection Framework:
+	
+Limitations Of Java Array??
+
+1.Can store only one type of data ie homoginous data.	
+
+2.Can't change size once memory get allocated
+ie can't increase or decrese
+
+3. Limitted support of standard methods
+
+4. To perform insert or delete operation in between position we have to
+perform shifting of each next elements.
+
+	All the limitations will be overcome by Java Collections.
+
+Advantage: Array is fastest data Structure
+
+	Array----->Collection
+
+Collection Framework:
+	It is collection of classes and interfaces used to work with collection of
+objects. It is used to overcome limitations of  java Array. All the classes
+and interfaces from collection framework are present in java.util package.
+
+Advantages:
+
+1. We can increase and decrease the size at runtime
+2. We can store different type of elements 
+3. Rich set library ie redy made methods are available to perform various operation
+on group of objects.
+
+
+Following are the interfaces from collection framework.
+
+	Collection: It is parent interface for List, Set and Queue interfaces.
+ All common methods are declare in this interface.
+
+
+		List--> We can store duplicate elements.
+			Customer List
+
+			Classes:
+			-ArrayList---->Not Synchronized
+			-LinkedList--->
+			-Vector-------> It is similler with ArrayList just it is Synchronized
+				-Stack--> To implement LIFO data Structure
+
+
+		Set --> We can store only unique elements
+			ex.Voter List
+
+			Classes:
+			-HashSet----->Not implements insertion order
+			-LinkedHashSet-->implement insertion order
+			SortedSet(Interface)
+			-TreeSet----> Sorted Order
+
+		Queue--> To implement FIFO data structure
+			
+			Classes
+			-PriorityQueue
+			Deque(interface)
+			-ArrayDeque
+	Map---> Its used to store key value pair  
+		ex.pincode --area name
+
+		Classes
+		-HashMap---> will not implement insertion order
+		-LinkedHashMap---> will implement insertion order
+		SortedMap(Interface)
+		-TreeMap------> SortedOder
+
+
+
+
+	Some other interfaces:
+
+	Sorting
+		Comparator and Comparable
+
+	Traversing
+		Iterator and ListIterator
+
+============================================================================
+
+	Using Collection framework Classes and Interfaces:
+	Non-Generic Style:
+	//List list = new ArrayList();
+		List list = new LinkedList();
+		list.add("Ram");
+		list.add("Sham");
+		list.add("Jam");
+		list.add("Tam");
+		list.add(10);
+		list.add(10.5);
+		System.out.println(list);
+
+	Generic Style:
+
+		//List<String> list = new ArrayList<String>();
+		List<String> list = new LinkedList<String>();
+		list.add("Ram");
+		list.add("Sham");
+		list.add("Jam");
+		list.add("Tam");
+		//list.add(10);//ERROR
+		We can store only String type of data here
+
+		List<Integer> list = new LinkedList<Integer>();
+			list.add(10);
+			list.add(20);
+			list.add(30);
+			//list.add("Ram");//ERROR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

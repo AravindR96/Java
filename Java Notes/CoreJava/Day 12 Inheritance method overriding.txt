@@ -1,0 +1,229 @@
+
+Types Inheritance
+Constructor Inheritance
+super keyword
+Method Overriding
+Dynamic Method Dispatch
+final keyword
+abstract class and abstract method
+
+
+Types Inheritance:
+
+1.Single Inheritance
+2.Multi Level Inheritance
+3.Hierarchical Inheritance
+4.Multiple Inheritance--->Not Possible
+
+
+
+1.Single Inheritance: If there are only two classes are involved in inheritance 
+then it is called single inheritance.
+
+	A (Parent/Super/Base)
+	|
+	|
+	B (Child/Derived/Sub class)
+
+
+	class A{
+
+
+	}
+	class B extends A{
+
+	}
+2.Multi Level Inheritance: 
+	A	(Higest Level Parent class)
+	|
+	|
+	B	(Intermediate Parent Class)
+	|
+	|
+	C	(Intermediate Parent Class)
+	|
+	|
+	D	(Child Class)
+
+class A{
+
+}
+class B extends A{
+
+}
+class C extends B{
+
+}
+class D extends C{
+
+}
+
+
+Constructor Inheritance:
+
+ super keyword:
+
+1. super used to invoke parent class constructor
+2. super used to access parent class data members
+3. super used to invoke parent class overriden method
+
+3.Hierarchical Inheritance:
+
+		A	(Parent class)
+		|
+		|
+	B		C
+	Child1		Child2
+
+
+class A{
+
+}
+class B extends A{
+
+}
+class C extends A{
+
+}
+
+In this we have to create object of all last level child classes.
+
+		Person
+			pId
+			name
+			address
+			dob
+   Employee		Student 	Parent
+	salary		  per		  fees
+
+Here we have to create object Employee,Student and Parent seperately
+
+4. Multiple Inheritance:
+If we have more than one parent classes for single child class then
+it is called as multiple inheritance.
+
+This inheritance is not possible in java.
+
+	A (Parent1)	B (Parent2)
+		    |
+		    |
+		C (Child) 
+
+
+class A{
+	display()
+}
+class B{
+	display()
+}
+class C extends A,B{//Not POssible
+
+}
+
+objc.display();//Ambuguity ie Confusion
+
+but using interface we achieve this.
+
+=================================
+
+Method Overriding:
+
+Method Overloading: same name and different signature in one class
+
+Method Overriding: Within inheritance if we have more than one methods
+having same name and same signature one present in parent class and
+other present in child class then the mechanism is called as method overriding.
+and methods are called as overriden methods.
+
+Call to overriden methods is resolved at run time. Hence it is used to acieve run
+time polymorphism.
+
+
+	class A{
+		public void display(){
+
+		}
+	}
+	class B extends A{
+		public void show(){
+
+		}
+		public void display(){
+
+		}
+	}
+
+	B objb = new B();
+	objb.display();//B
+	objb.show();//B
+
+
+In this if we create object of child class and invoke overriden method
+then it invokes child version of that method
+If we have call parent version we can use super keyword
+
+@Override
+	public void display() {
+		super.display();
+		System.out.println("In B Display");
+		
+	}
+@Override annotation esures that method written is overriden method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

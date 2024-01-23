@@ -1,0 +1,289 @@
+default Method
+static method 
+functional interface
+Marker Interface
+
+Difference between abstract class and interface
+
+	default method in interface:
+
+It is the method with body within interface.
+Since java 8 we can write method with body in interface.
+We use default keyword to declare method as default.
+
+
+	public interface InterfaceName{
+		//abstract methods
+		default void display(){
+			//add default behaviour
+		}
+		
+	}
+
+-Default method may or may not be override within class which implements
+ the interface.
+-Why??
+It is used in mantainance
+If we have to add new method in interface which have been implemented by 100 
+of classes. So no need to modify all classes.
+static method in interface:
+It is method with  body within interface like default method.
+It is added in java 8 version.
+The static method can not be override by classes which implements interface
+where default method can be override.
+
+Static method can be called by using interface name.
+
+public interface InterfaceName{
+	static void myShow(){
+		//default behaviour
+	}
+}
+	Functional Interface:
+This is also called as one method interface.
+It contains only one abstract method.
+It may contain any number of default and static method.
+To ensure interface as functional interface we can use @FunctionalInterface annotation
+	@FunctionalInterface
+	public interface Operation{
+		void addition(int num1, int num2);
+	}
+
+Lambda expression implements functional interface
+with very precise code.
+Following are the standard functional interfaces.
+Runnable
+Predicate
+Supplier
+BinaryOperator
+UnaryOperator
+================================
+
+	marker interface:
+It is the interface without method or field.
+It is also called as empty interface.
+List of standard marker interfaces
+Serializable
+Remote
+Clonable
+
+public interface MyInterface{
+	//nothing
+
+}
+Object class methods are available to marker interface
+=================================
+Difference between abstract class and interface
+
+1. Multiple inheritance will be not supported by abstract class.
+1. Multiple inheritance supported by interface
+
+2. Uses extends keywords
+2. Uses implements keyword
+
+3. abstract and class keyword is used
+3. interface keyword is used
+
+4. 0 to 100 % abstraction
+4. 100% abstraction
+
+5. We have to use abstract and public keyword to declare methods
+5. By default methods abstract and public
+
+6. We can write constructor
+6. We cant write Constructor
+
+7. IS-A kind of relationship we should use abstract class
+7. HAS-A kind of relationship we should use interface
+=====================================
+
+Polymorphism:
+Poly means many and
+morph means form
+Hence polymorphism referes to one thing with multiple forms.
+It is important oops concept.
++ operator
+
+int sum = 10 + 20;//Addition--30
+
+String s3 = "Ram" + "Jam";//Concatnation--RamJam
+
+Method Overloading---> More than one methods with single name and different signature
+Method Overriding--> Method name one but different bodies present in parent and child clases
+Constructor overloading
+
+			Polymorphism
+
+	Compile Time			Run Time
+
+
+
+1.Compile Time: Call to the overloaded methods is resolved at compile time
+by compiler hence it called as compile time polymorphism.
+It happens very early before execution hence it is also called as
+early binding or static binding.
+Method Overloading
+Operator Overloading
+Constructor Overloading
+add(10,20);
+add(10,20,30);
+add("Ram","Jam");
+
+2. Run Time : Call to the overriden methods is resolved at run time hence it
+is called as runtime polymorphism.
+It happens very late after the compilation hence called as late binding
+or dynamic binding.
+Dynamic Method dispatch(Method Overriding)
+Interface
+abstract classes
+
+public void invoke(Parent ref){
+	ref.area();//Parent / Child	
+}
+
+invoke(new Parent());
+invoke(new Child());
+==============================================================================
+
+Wrapper classes:
+For primitive data type there is associated wrapper class.
+All wrapper classes are present java.lang package
+Primitive Data Type  	Wrapper classes
+byte--->		Byte
+short---> 		Short
+int ---> 		Integer
+long---> 		Long
+
+float--->		Float
+double--->		Double
+
+char---> 		Character
+
+boolean--->		Boolean
+
+If we have to convert primitive to non-primitive and non-primitive to 
+primitive type we can go for wrapper classes.
+
+Boxing: Converting primitive type to non-primitive type is nothing but boxing
+ie Converting to object.Wrapping is nothing but boxing
+
+	int num = 10;
+
+	Integer obj = new Integer(num);//Boxing
+
+UnBoing: Reverse of boxing is nothing but unBoxing.
+ie Conversion of non-primitive type to primitive type.Unwrapping is nothing but unboxing.
+	Integer obj = new Integer(num);//Boxing
+	int a = obj.intValue();//UnBoxing obj.XXXXValue();
+
+AutoBoxing: If Boxing happens automatically then it is called as autoboxing.
+
+ArrayList list = new ArrayList();
+list.add(10);//AutoBoxing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,246 @@
+
+	Sorting Collection:
+
+	TreeSet---->
+	TreeMap---->
+
+	Comparable and Comparator interface
+
+	compareTo()		compare()
+In both methods we will write sorting logic.
+
+Comparable Interface:
+
+
+	It is interface present java.lang package.
+ It is used to provide single sorting sequence.hile using this interface
+original class will change or modified because we have override compareTo()
+method in original class. compareTo() method is used to add sorting logic.
+Finally we can use Collections.sort(list);
+
+	public class Employee implments Comparable<Employee>{
+		empId;
+		empName;
+		salary;
+		//getetr or Setter
+		public int compareTo(Employee emp){
+			//sorting logic
+			//Return 0,1,-1
+
+			if(emp.salary > this.salary){
+				return 1;
+			}else if(emp.salary < this.salary){
+				return -1;
+			}else{
+				return 0;
+			}
+			
+
+		}
+
+
+public class MyEmployeeList {
+
+	public static void main(String[] args) {
+		Employee emp1 = new Employee(101,"Ram",60);
+		Employee emp2 = new Employee(102,"Sham",65);
+		Employee emp3 = new Employee(103,"Jam",75);
+		Employee emp4 = new Employee(104,"Tam",55);
+
+		List<Employee> list = new ArrayList<Employee>();
+		list.add(emp1);
+		list.add(emp2);
+		list.add(emp3);
+		list.add(emp4);
+		Collections.sort(list);
+		for(Employee emp:list){
+			System.out.println(emp);
+		}
+
+	}
+
+}
+
+public static void myLinkedList() {
+		
+		List<Integer> list = new LinkedList<Integer>();
+		//list.add("Ram");//ERROR
+		list.add(20);
+		list.add(10);
+		list.add(30);
+		list.add(10);
+		Collections.sort(list);
+		System.out.println(list);
+	}
+	
+
+}
+==========================================
+
+	Using Comparator:
+It is interface present java.util package.
+It is used to provide multiple sorting sequence in collection.
+While using this interface original class will not change or modified.
+For this we can create seperate class which implements Comparator interface and
+override compare() method. Sorting logic will put in compare();
+
+class Employee{
+	---
+	--
+}
+
+public class SalaryComparator implements Comparator<Employee>{
+	public int compare(Employee emp1 , Employee emp2){
+		if(emp1.getSalary() > emp2.getSalary()){
+			return 1;
+		}else if(emp1.getSalary() < emp2.getSalary()){
+			return -1;
+		}else{
+			return 0;
+		}
+	}
+
+}
+
+public class EmpIdComparator implements Comparator<Employee>{
+	public int compare(Employee emp1 , Employee emp2){
+		if(emp1.getEmpId() > emp2.getEmpId()){
+			return 1;
+		}else if(emp1.getEmpId() < emp2.getEmpId()){
+			return -1;
+		}else{
+			return 0;
+		}
+	}
+
+}
+
+public class EmpNameComparator implements Comparator<Employee>{
+	public int compare(Employee emp1 , Employee emp2){
+		return emp1.getEmpName().compareTo(emp2.getEmpName());
+	}
+
+}
+
+
+Collections.sort(list,new SalaryComparator());//Sort according to salary
+Collections.sort(list,new EmpIdComparator());//Sort according to empId
+Collections.sort(list,new EmpNameComparator());//Sort according to EmpName
+==================================================================
+	Map :
+In this data will be get store in key value pair.
+If we have to store  pincode and AreaName
+Here pincode act as key
+and AreaName can act as Value.
+
+In this key must be unique value can be duplicate.
+It is interface present java.util package used to implement key vapue pair
+collection
+
+
+			Map
+
+				HashMap--->Will not implement insertion order
+
+				LinkedHashMap--->Will implement insertion order
+
+			SortedMap(Interface)
+				TreeMap---->Will store data in sorted order
+
+
+
+	Using Map:
+
+	Map map = new HashMap();
+	map.put(101,"Pune");
+	map.put(102,"Banglore");
+	map.put(103,"Delhi");
+	map.put("Jam","Chennai");
+	sop(map);
+
+
+	Generic Way:
+	
+	Map<Integer,String> map = new HashMap<Integer,String>();
+	map.put(101,"Pune");
+	map.put(102,"Banglore");
+	map.put(103,"Delhi");
+	//map.put("Jam","Chennai");//ERROR
+	sop(map);
+
+public class MyMap {
+
+	public static void main(String[] args) {
+		//MyMap.myHashMap();
+		MyMap.myHashMapGeneric();
+
+	}
+	public static void myHashMap() {
+		//Map map = new HashMap();
+		//Map map = new LinkedHashMap();
+		Map map = new TreeMap();
+		
+		//map.put("Tom", "Tam");
+		map.put(1011,"Pune");
+		map.put(102,"Banglore");
+		map.put(1033,"Delhi");
+		//map.put("Jam","Chennai");
+		System.out.println(map);
+	}
+	public static void myHashMapGeneric() {
+		//Map<Integer,String> map = new HashMap<Integer,String>();
+		//Map<Integer,String> map = new LinkedHashMap<Integer,String>();
+		Map<Integer,String> map = new TreeMap<Integer,String>();
+		
+		//map.put("Tom", "Tam");//ERROR
+		map.put(1011,"Pune");
+		map.put(102,"Banglore");
+		map.put(1033,"Delhi");
+		//map.put("Jam","Chennai");//ERROR
+		System.out.println(map);
+		//map.remove(1033);
+		
+		System.out.println(map);
+		System.out.println(map.get(102));
+		Set<Integer> set = map.keySet();
+		for(Integer obj:set) {
+			String city = map.get(obj);
+			System.out.println(obj + " " + city);
+			
+		}
+
+		System.out.println("Display as entrySet()");
+		Set<Map.Entry<Integer,String>> set1 = map.entrySet();
+		for(Map.Entry<Integer,String> m:set1) {
+			System.out.println(m.getKey() + " " + m.getValue());
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,144 @@
+	Servlet Filter:
+
+	It is Class which implements Filter interface. It is used to perform 
+preprocessing and post processing logic.
+
+
+Web Client----Request-------------->Pre Processing Filter---------------->MyServlet
+Browser	<-----Response---------------Post Procesing Filter<--------------
+
+
+Where to use Filter:
+
+-To provide encription and Decription logoic
+-To provide Data Compression
+-To provide conversion
+-To provide validation
+-To record incomming all requests
+
+
+To implement filter we have Filter API:
+In java  javax.servlet which contains all the classes and interfaces related with
+filter implementation.
+
+Filter -Interface
+FilterChan---
+FilterConfig
+
+		Filter Life Cycle:
+
+Like Servlet, Filter life Cycle also get managed by container.Following
+are the life cycle methods of filter.
+All these methods are from Filter interface
+
+init(FilterConfig config)
+
+
+doFilter(HttpServletRequest request,HttpServletResponse response,FilterChain chain)
+
+
+destroy()
+
+Phases of Filter life Cycle which are similler to servlet.
+
+1. Filter Class Loading
+2. Instantiation ie Creating object of User defined Filter Class
+3. Initilization (init() method called)
+4. Service (doFilter() method called) //Pre Processing and Post Processing logic
+5. Destruction (destroy() method called)
+
+
+Writing Filter Filter User Defined Class:
+For this we can create user defined class which implement Filter interface
+and override its methods
+
+public class MyFilter implements Filter{
+	public void init(FilterConfig config)throws ServletException{
+
+		//Initilization Logic
+	}
+
+	public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)throws ServletException,IOException{
+		//Pre Processing Logic
+
+		chain.doFilter(request,response);//It invoke servlet
+
+		//Post Processing logic
+	
+	}
+	public void destroy(){
+		//Destruction/ Deaalocation Logic
+	}
+
+}
+
+	Register Filter  ie Filter Mapping:
+
+Like servlet, filter have to mapped in web.xml.
+
+By using this mapping container will understand which filter have to execute
+for which servlet
+
+
+
+<web-app>
+	----
+	----
+	----
+	<filter>
+		<filter-name>Any Name</filter-name>
+		<filter-class>Fully Qualified Filter class</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Any Name</filter-name>
+		<url-patter>url pattern of servlet</url-patter>
+	<filter-mapping>
+</web-app>
+ex.
+<web-app>
+	<servlet>
+		<servlet-name>MyServlet</servlet-name>
+		<servlet-class>com.zieta.servlets.MyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyServlet</servlet-name>
+		<url-pattern>/MyServlet</url-pattern>
+	<filter-mapping>
+	<filter>
+		<filter-name>MyFilter</filter-name>
+		<filter-class>com.zieta.serlvets.MyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MyFilter</filter-name>
+		<url-pattern>/MyServlet</url-pattern>
+	<filter-mapping>
+</web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

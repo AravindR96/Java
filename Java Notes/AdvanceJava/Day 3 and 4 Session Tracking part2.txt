@@ -1,0 +1,218 @@
+
+Session Tracking or Management:
+	
+Http is stateless that means it forgot previous request.
+That simply means it consider every request as new request.
+In such cases we need to persist data from previous request.
+
+With this we have to identify each user uniquickly
+
+Solution is ---->Session Tracking Mechanism.
+
+Following are the different ways to track user request.
+
+1. Cookie
+2. Hidden Form Fields
+<input type=hidden value = user>
+3. Url Rewriting
+4. HttpSession
+
+No business process will complete in single request response cycle.
+
+Online Railway ticket booking
+
+---->Login---->NiteenSir Niteen123
+----> Search Train
+----> Payment
+
+
+1. Hidden Form Fields
+
+<input type='hidden' name='username' value='NiteenSir'/>
+
+ex.
+
+	String user = request.getParameter("username");
+
+out.println("<input type='hidden' name='username' value='"+user+"'/>");
+out.println("<input type='text' name='technology'/>");
+out.println("<input type='Submit' value='submit'/>");
+
+2. Cookie:
+
+Cookie is small piece of data created at server side and store at client side.
+It is used to track user requests.
+It is name value pair data.
+
+When first request come to servlet/server,Cookie will be created and added with
+response and send to client and store.
+When next/2nd request come the cooke will be added with request and send to server
+through this server will understand that this is next request.
+
+Disadvantages:
+1. Only small piece of data in text format we can store in Cookie.
+2. If Client desable cookie then it will not work.
+
+Cookie is class present in javax.servlet.http package.
+
+1.How to Create Cookie?
+We can create cookie by using Cookie class
+
+Cookie c = new Cookie(String name,String value);
+Cookie c1 = new Cookie("username",user);
+where,String user = request.getParameter("username");
+
+2. Add Cookie to Client
+	This method is used to add cookie at client side
+	response.addCookie(c1);
+
+3. Retrive Cookie on Serverside:
+
+
+	Cookie[] request.getCookies();
+This method is used to retrive cookies from request.
+
+ex.
+
+	Cookie c[] = request.getCookies();
+
+	for(int i = 0; i < c.length ; i++){
+		String user = c[i].getName();
+		String value = c[i].getValue();
+		sop(name + " " + value);
+
+	}
+
+
+ex.
+	Cookie c1 = new Cookie("username",user);
+where,String user = request.getParameter("username");
+
+	String name = c1.getName(); //username
+	String value = c1.getValue(); // NiteenSir
+
+
+//Servlet to Display All Cookies Present At Client Side.
+
+DisplayCookieServlet.java
+
+	3. Url Rewriting:
+
+The data which we want to persist in multiple request we can add in name value
+pair in url.So appending data in url is nothing but Url Rewriting.
+
+url?name1=value1&name2=value2
+name and value will be seperated by = sign 
+more than one pair will be seperated by &
+
+Url rewriting will work with hiperling ie <a>
+
+ex.
+	out.println("<a href='display?username="+user+"'>")
+
+Where,String user = request.getParameter("username");
+
+The value appended in url can get by using request.getParamater() method
+
+
+Disadvantage:
+1.It will work with only hyperlinks
+2. Can send only text data
+
+	HttpSession:
+
+It is interface present in javax.servlet.http package.
+It is used to to implement session tracking mechanism.
+It identify user uniquickly through unique session id.
+Session id is created by container.
+ Session id is used by container to identify user uniquickly.
+Session id is created at server side and store on server itself.
+
+User1----->Request1------>LoginServlet----Unique Session id will be created by Container
+
+User2-----> Request2----->
+User3-----> Request3----->
+
+Online product Buying:
+
+		LoginServlet----	ProductServlet-------PaymentServlet
+		Create Session
+
+
+How to Create Session:
+To create session we use getSession() method of HttpServletRequest.
+
+HttpSession session = request.getSession();
+HttpSession session = request.getSession(true);
+
+This will return reference session if it is already created. If session is 
+not created yet it will create new session.When it create new session it generate
+unique session id in String format,which will be used for unique identification.
+
+
+HttpSession session = request.getSession(boolean value);
+HttpSession session = request.getSession(false);
+It will retun reference old session.
+Here value can be true or false. Default value is true.
+If we given false if session not exist it will not create new session and return null
+
+
+Methods:
+
+1. boolean isNew(): It is used to check weather session is new or old.
+It return true if session is new else returns false.
+
+if(session.isNew()){
+	//new session
+}else{
+	//old session
+}
+
+2. String getId(): This method returns the session id associated with session.
+
+	sop(session.getId());
+
+3. long getCreationTime(): This method return the session creation time.
+
+	long time = session.getCreationTime();
+
+4. long getLastAccessedTime(): It returns last time when user sends last request.
+
+5. void invalidate(): This method is used to close session.It is called invalidate.
+
+	In logout procss we can invalidate session.
+	session.invalidate();
+
+
+Another use of HttpSession is to persist data in multiple request response cycle.
+For this we can use two methods>
+
+1. void setAttribute("name",Object value):
+This method is used to save data in session scope so all the servlets involved
+in session can access or use this data.
+
+	session.setAttribute("username",user);
+Where, String user = request.getparameter();
+
+2. Object getAttribute("name"): 
+This method returns value associated with given attribute name.
+
+String user = (String)session.getAttribute("username");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

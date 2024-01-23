@@ -1,0 +1,187 @@
+
+	
+Exception Handling:
+
+Exception is runtime error or anamoly which stops the execution of program
+or application abnormally.
+So interrupts the normal execution flow of your code.
+
+Error:
+1. Compile Time error: ; missing
+2. Runtime Error: Will not identify to compiler.
+Mechanism used to resolve such runtime errors ie exceptions is nothing but
+exception handling.
+
+Here Exception is class present in java.lang package
+
+class Division{
+	public void division(int num1 , int num2){
+		sop("In division method");
+		int div = num1 / num2;//divide by zero 
+		sop("Division = " + div);
+	}
+	public void enjoy(){
+		sop("I m Enjoying!!!!");
+	}
+
+}
+Division obj = new Division();
+obj.division(10,5);//Calling
+obj.division(10,0);
+obj.enjoy();
+
+
+Situations When eexception get raised:
+1. When we try to divide number by zero
+2. When we try to process String having null vaulue
+3. When we try access element out of bound from  array or String etc
+
+try-catch
+
+try{
+
+	//try block
+}catch(AnyExceptionClass e){
+	//catch block	
+}
+try block contains code which might raised exception
+catch block contains error handlig code.
+Catch block is get executed only when exception get raised.
+If no matching catch clause it will treat like we have not handled exception.
+Executuion will stoped
+Exception Hierarchy:
+
+
+			  Throwable
+
+	Exception 			Error
+		IOException
+		SQLException				StackOverFlowError
+		ClassNotFoundExcption			VirtualMachineError
+		RuntimeException
+	    		ArithmeticException		OutOfMemoryErorr etc			
+	    		NullPointerException
+	    		ArrayIndexOutOfBoundsException			
+	    		StringIndexOutOfBoundsException			
+					
+
+
+
+
+General Catch Clause:
+
+try{
+
+}catch(Exception e){
+
+}
+
+
+Multiple Catch clauses:
+
+try{
+
+}catch(ExceptionType1 e1){
+
+}catch(ExceptionType2 e2){
+
+}catch(ExceptionType3 e3){
+
+}catch(Exception e){
+
+}
+
+General Catch claue should putted at last
+otherwise unreachable code error will be get occur.
+
+finally clause: Finally caluse is get executed compulsary weather exception get raised or not
+If we have code that must be get executed compulsary weather exception
+raised or not.
+Such code must be putted in fainally clause
+
+try{
+
+}catch(ExceptionType1 e1){
+
+}catch(ExceptionType2 e2){
+
+}catch(ExceptionType3 e3){
+
+}finally{
+	//Compulsary code
+
+}
+
+Database connection closing code
+File Closing operation
+Socket Closing
+
+Is it possible to write try without catch???
+Answer is YES.
+try{
+
+}finally{
+
+}
+
+In this if exception get raised it will be treated as not handled
+and hence execution will be get stopped/interrupted
+Here finally clause get executed
+====================================================
+
+Types Of Exceptions:
+
+1. Checked Exceptions: Also called called as compile time exception
+Checked exceptions are checked for exception handling code at compile time.
+If we have not handled exception compiler gives error.
+
+	IOException
+	SQlException
+	ClassNotFoundException
+	InteruptedException
+
+2. UnChecked Exception: Also called as run time exceptions
+
+Unchecked exceptions are not checked for exception handling code at compile time
+These are check at run time only ie dynamically
+ 	
+	NullPoiterException
+	ArithmeticException
+	ArrayIndexOutOfBoundsException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+Character Stream Classes
+	FileReader
+	FileWriter
+
+Serialization and Deserialization
+
+FileReader: If we have to retrive data from file.
+
+	FileReader reader = new FileReader(f);
+
+	while(true){
+		int i = reader.read();
+		if(i== -1){
+			break;
+		}
+		sop((char)i);
+	}
+
+FileWriter: It is character stream class which is used to perform write or output 
+operation.
+
+FileWriter writer = new FileWriter(f);
+
+	writer.write(i);
+
+reader.close();
+writer.close();
+=========================================================================
+Serialization and DeSerialization
+
+Serialization: It is process of maintaining state of user defined object 
+into file so that it can easily retrive that object data.
+
+Serialization is similler marshling mechanism used in RMI.
+Conversion of java object into Data Transferable format is nothing but serialization
+To perform Serialization in java we use class
+ObjectOutputStream oos = null;
+	oos.writeObject(emp);
+where emp is object of Employee class
+
+Machine1------------->Machine2
+Serilization		DeSerialization
+class Employee implements Serializable{
+	empId;
+	empName;
+	empSalary;
+}
+
+
+
+DeSerialization: It is reverse process of serialization. ie Conversion of 
+Data transferable format into java Object.
+It is similler to UnMarshling mechanism used in RMI.
+In deserialization maintained state of object is used to retrive the record.
+To perform deserialization in java we use
+ObjectInputStream ois = null;
+ Employee emp = (Employee)ois.readObject();
+
+oos.close();
+ois.close();
+
+Note: whenever we have to implement seriaization and Deserialization the class
+which object have serialize must implement Serializable interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

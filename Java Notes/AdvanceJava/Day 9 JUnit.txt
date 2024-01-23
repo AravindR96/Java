@@ -1,0 +1,68 @@
+Core Java + JDBC + Servlet + JSP
+
+Frameworks:
+	Testing----> JUNit
+	Database--->Hibernate
+	Programming--->Spring
+
+
+ JUnit:
+
+	Testing is important part of software development life cycle.
+	Here we have to tet the source code written by developer. 
+The testing perform to test source code is called as unit testing.
+In unit testing smallest block of code ie method or function is going to test.
+This testing can be done by developer only.
+
+To perform unit testing we use Junit as testing framework.
+
+In this we have to write test cases. The test cases are the special methods
+from test class in which we write testing logic.In Junit framework these methods
+will be annoted using @Test annotation.
+In unit testing we provide some dummy input will get output, this out put will be 
+compared or checked with expected output.According to this comparisn
+test case will be passes or failed. If test case is failed that means defects or
+some buggs are there in code,we as developer have to resolved it.
+
+public class TestAddition{
+	@Test
+	public void testAddition(){//TestCase
+		//testing
+	}
+	@Test
+	public void testConcatnation(){//TestCase
+		//testing
+	}
+}
+
+public class Addition{
+	public int addition(int num1 , int num2){
+		int sum;
+		sum = num1 * num2;
+		return sum;
+	}
+	public String concatnation(String s1 , String s2){
+
+		return s1 + s2;
+	}	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+
+	Session Tracking in Servlet:
+It is also called Session Management.
+
+What is Session?
+
+Session is time interval between login and logout.
+Http is stateless protocol that means it forgot the previous request data as new
+request came.
+In real world no business process will complete within single request response
+cycle.
+Session tracking is used to track the user in multiple request response cycle
+uniquickly.
+
+
+Web Client----------->HttpRequest1------------------>Web Applin
+	<-----------------HttpResponse1<----------------
+
+	------------->HttpRequest2------------------->
+	<--------------HttpResponse2<------------------
+
+	Buy Train Ticket Online:
+	0. Login----> NiteenSir & Niteen123
+	1. IRCT site
+	2. Search Trains
+	3. Select Train and enter passenger details
+	4. Payment Page and Enter payment details
+	5. Confirm ticket
+
+For this process we need atleast 4-5 request response cycle.
+In this we enter login details in first request response cycle.
+
+In 2nd Requst response cycle Login details will be forgotten because of http's 
+stateless nature.
+then how it will be understand that next request response cycle have been processed by
+the person who login?????
+
+login.html				LoginServlet		SerchServlet 	PaymentServlet
+
+user:NiteemSir				Validate data		Search Trains
+Pass:Niteen123
+submit---As click on button
+
+
+Solution is----> Session Tracking Mechanism/ Session Management
+
+Following are the session tracking mechanism in Servlet.
+
+1. HttpSession
+2. Cookie
+3. Hidden Form Fields
+4. Url Rewriting
+
+
+home.html			HomeServlet.java		WelcomeServlet
+
+user: NiteenSir			Retrive user			Retrive Technology
+
+submit				Welcome,NiteenSir
+
+				Technology: Java		Hi, NiteenSir You take Java
+
+				submit
+

@@ -1,0 +1,252 @@
+Data Structure
+Sorting Algorithms
+	Selection Sort
+	Insertion Sort
+	Quick Sort etc
+
+20---i=0
+5    j= i+1
+4
+10
+9
+
+compare ith data and jth data
+if yes ---Swap
+if no dont swap	
+j++
+5----i
+20
+4	j
+10
+9
+j++
+swap
+4 i
+20
+5
+10 j
+9
+No swap
+j++
+
+4	i
+20
+5
+10
+9 	j
+No swap
+
+
+
+	List<Employee> list = new ArrayList()<EMployee>();
+		---
+		---
+
+	Collections.sort(list);
+
+where class Employee implements Comparable<Employee>{
+	//Overriding
+	compareTo(){
+
+
+	}
+
+}
+==============================================================
+	Multi Threading:
+
+Multi Tasking: Multiple task will get executed at time.
+Multi tasking can be achieve by using
+Multi processing---> Multiple Processes will be executed at a time.
+Multi Threading----> Multiple Threads will be executed at a time.
+
+
+	Thread is sub process of main process.
+	Thread is nothing but process
+Both Threads and Processes are independent.
+
+	Notepad ----Runnig
+
+	Teams------ Running
+
+	Eclipse----Running
+
+Multi Processing is important feature of operating system.
+
+	Multi Threading--->
+
+		Human body is best example of multi threading
+
+		Speaking
+		Watching
+		Typing
+		Breathing
+All above are the sub processes of main process Human Body considering as
+main process(Thread)
+		
+		Eclipse----Running-----Main Thread(Process)
+		
+			Scrooling
+			Typing
+			Spell Checker
+			Compiler
+
+	Tread is sub process.
+	Every process have life cycle.
+
+	Java Batch(Process)---->Started----Discussing topic--after two hours
+blocked temparary---> sunday or Saturday---blocked--
+as syllabus get completed ---will stop the batch
+
+
+
+	Tread Life: Thread is process so it have life cycle phases
+which will be get followed by every thread.
+Following are the phasesof thread life cycle.
+
+1. New Born Phase: In this phase thread will be get created.
+As we create object of Thread class thread enters into new born phase.
+
+	Thread t = new Thread();
+
+2. Runnable Phase: It is phase of thread which is waiting to get executed.
+Thread schedular have not selected thread for execution. No CPU time have be assigned
+for thread. method start() push thread into Runnable from new born phase.
+		t.start();
+
+3. Running Phase: It is very important phase where thread logic will be
+getting executed. Thread is running. method run(){} is getting executed in this 
+phase. As thread schedular select thread for execution then it enters into
+running phase.
+
+4. Blocked Phase: In this phase execution of thread will be stoped/paused for temparary
+period,or till perticular event get occur.
+	sleep(1000);,wait();,suspend();
+All thesemethods push the thread from running to blocked
+ As time given sleep() completed,
+resume(),notify(),notifyAll()
+
+5. Dead Phase: It is last phase of thread life cycle.
+When execution of run(){} completes normally then thread automatically goes into 
+dead phase. That is execution of thread get completed.
+stop() method push the thread to dead phase explicitely.
+==================================================================
+
+	Creating Thread: Thread can be created by two ways.
+
+	1. extending Thread class
+	2. implementing Runnable interface
+
+	1. extending Thread class:
+
+	public class MyThread extends Thread{
+		public MyThread(){
+			super();
+			//Initilization
+			start();
+		}
+		public void run(){
+			try{
+				//Thread Logic
+				//sleep(),wait(),suspend(),resume(),notify()
+			}catch(Exception e){
+
+			}
+			
+		}
+
+
+	}
+
+public class MyThreadNumber extends Thread {
+	public MyThreadNumber() {
+		start();
+	}
+	public void run() {
+		try{
+			for(int i = 1; i<=25;i++) {
+				System.out.println(i);
+				sleep(1000);
+			}
+		}catch(Exception e){
+
+		}
+	}
+}
+
+
+2. implementing Runnable interface:It is alternative to extends Thread class.
+
+	public class MyThreadAlpha implements Runnable{
+		private Thread t;
+		public MyThreadAlpha(){
+			t = new Thread(this);
+			t.start();
+		}
+		public void run(){
+			try{
+				//Thread Logic
+				//t.sleep(1000),t.notify(),t.resume(),t.suspend()
+
+			}catch(Exception e){
+
+
+			}
+		}
+
+	}
+
+public class MyApplet extends Applet implements Runnable{
+
+
+}
+
+public class MyFrame extends Frame implements Runnable{
+
+
+}
+
+
+public class MyThreadAlpha implements Runnable {
+	private Thread t;
+	public MyThreadAlpha() {
+		t = new Thread(this);
+		t.start();
+	}
+	@Override
+	public void run() {
+		try {
+		for(int i = 65;i <= 90; i++) {
+			System.out.println((char)i);
+			t.sleep(1000);
+		}
+			
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+			
+		
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

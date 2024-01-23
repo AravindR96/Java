@@ -1,0 +1,195 @@
+package com.test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
+import org.junit.jupiter.api.Tag;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+
+import com.icons.Addition;
+@Tag("NiteenSir")
+public class Testing {
+	@Test
+	@Tag("demo")
+	public void testDemo() {
+		System.out.println("Hi,I am Test Case");
+	}
+
+	@Test
+	@Tag("add")
+	void testAddition() {
+		Addition obj = new Addition();
+		assertEquals(30, obj.addition(10, 20));
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = { "Ram", "Sham", "Jam","Nisha" })
+	void myTestEndsWithm(String s1) {
+		assertTrue(s1.endsWith("m"));
+	}
+
+	@RepeatedTest(value = 5, name = "{displayName} {currentRepetition}/{totalRepetitions}")
+	@DisplayName("RepeatingTest")
+	void customDisplayName(RepetitionInfo repInfo, TestInfo testInfo) {
+		int i = 3;
+		System.out.println(testInfo.getDisplayName() + "-->" + repInfo.getCurrentRepetition());
+
+		assertEquals(repInfo.getCurrentRepetition(), i);
+	}
+	
+	/*
+	 * @Test void whenAssertingException_thenThrown() { Throwable exception =
+	 * assertThrows( IllegalArgumentException.class, () -> { throw new
+	 * IllegalArgumentException("Exception message"); } );
+	 * assertEquals("Exception message", exception.getMessage()); }
+	 */
+	@Test
+	void testAssume() {
+		String s1 = "Asha";
+		assumeTrue(s1.equals("Disha"));
+		assertEquals(20, 10+10);
+	}
+	@Test
+	void testAssumeThat() {
+		System.setProperty("NITT", "JAVA");
+		
+        assumingThat("JAV".equals(System.getProperty("NITT")),
+            () -> {
+                // This assertion only perform on the CI server
+            	System.out.println("Inner");
+                assertEquals(5, 3+2);
+            });
+ 
+        // perform these assertions in all environments
+        assertEquals(20, 10+10);
+    
+	}
+
+}
+
+
+
+==============================
+
+package com.test;
+import org.junit.jupiter.api.*;
+ 
+@DisplayName("JUnit 5 Nested Example")
+class NestedTests {
+ 
+    @BeforeAll
+    static void beforeAll() {
+        System.out.println("Before all test methods Outer");
+    }
+ 
+    @BeforeEach
+    void beforeEach() {
+        System.out.println("Before each test method Outer");
+    }
+ 
+    @AfterEach
+    void afterEach() {
+        System.out.println("After each test method Outer");
+    }
+ 
+    @AfterAll
+    static void afterAll() {
+        System.out.println("After all test methods Outer");
+    }
+ 
+    @Nested
+    @DisplayName("Tests for the method A")
+    class A {
+ 
+        @BeforeEach
+        void beforeEach() {
+            System.out.println("Before each test method of the A class Inner");
+        }
+ 
+        @AfterEach
+        void afterEach() {
+            System.out.println("After each test method of the A class Inner");
+        }
+ 
+        @Test
+        @DisplayName("Example test for method A")
+        void sampleTestForMethodA() {
+            System.out.println("Example test for method A Inner");
+        }
+    }
+}
+
+
+===============================
+
+package com.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.DisplayName;
+//import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
+
+import com.icons.Addition;
+
+public class TestAddition {
+	@Test
+	@DisplayName("Addition test case")
+	public void testAddition() {
+		System.out.println("In Test Addition");
+		Addition obj = new Addition();
+		assertEquals(30, obj.addition(10, 20));
+	}
+}
+===============================
+
+package com.test;
+
+
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class TestCycleMethods {
+	public TestCycleMethods() {
+		System.out.println("In Constructor");
+	}
+	@BeforeEach
+	void testBeforeEach() {
+		System.out.println("In BeforeEach");
+	}
+	@AfterEach
+	void testAfterEach() {
+		System.out.println("In After Each");
+	}
+	@BeforeAll
+	static void testBeforeClass() {
+		System.out.println("In Before Class");
+	}
+	@AfterAll
+	static void testAfterClass() {
+		System.out.println("In After Class");
+	}
+	@Test
+	void test1() {
+		System.out.println("In Test1");
+	}
+	@Test
+	void test2() {
+		System.out.println("In Test2");
+	}
+}
+================================

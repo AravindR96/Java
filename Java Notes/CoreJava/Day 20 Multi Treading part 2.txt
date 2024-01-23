@@ -1,0 +1,222 @@
+Thread Priorities
+Thread Synchrinization
+Daemon Thread
+
+
+Thread Priorities:
+In thread processing every thread has priority. Priority range is in between
+1 to 10 , here 1 is lowest priority and 10 Higesh Priority
+Default priority for thread is 5.
+Thread priorities can represented with three constant.
+1. public static int MIN_PRIORITY---->1
+2. public static int NORM_PRIORITY --->5
+3. public static int MAX_PRIORITY----> 10
+
+Methods:
+
+1. public final void setPriority(int);:
+ It is used to set priority for the tread
+
+	t.setPriority(10);
+	t.setPriority(3);
+
+2. public final int getPriority();: 
+This method rturns the priority of thread.
+
+sop(t.getPriority());
+
+The higher priority thread will get CPU time early as compare to thread with 
+lower priority.
+ As thread schedular have responsibility to select thread for execution.Hence even though
+we have assign thread priority still it not guaranteed becaus it depends on
+JVM Specification.
+===========================================================
+
+Thread Synchronization: It comes in picture when there is
+
+Multi Threaded Environment and Shared Resources. There are the multiple threads working
+on same resource at a time. In this situation there might chance to occur
+inconsistancy in result. To avoid this inconsistancy ie umexpected result
+we use thread synchronization.
+
+While using thread synchronization it put mutual exclusive lock on resource
+which is shared so that only one thread will execute or use that resource at a time.
+
+Mean while if another thread come to execute that thread it have to wait till
+first cmpletes its execution.
+It is similler to the monitor concept in operating system.
+
+				10k--5k-0
+	ChildThread---5k--->Joint Account<---5k------ParentThread
+
+		This Situation is called inconsistancy.
+
+To Achieve programatically we have to use synchronized keyword on method or
+on block
+
+	synchronized method:
+
+	synchronized public void withdraw(---){
+
+
+	}
+
+	syncronized Block:
+	syncronized{
+
+
+	}
+
+package com.zieta.thread;
+
+public class JointAccount {
+	private double balance;
+	public JointAccount(double balance) {
+		this.balance = balance;
+	}
+	synchronized public void withdraw(double amount) {
+		try {
+		System.out.println("Balance Before = " + balance);
+			if(amount <= balance) {
+				balance = balance - amount;
+				Thread.sleep(1000);
+				System.out.println("Balance After = "+ balance);
+			
+			}else {
+				System.out.println("Balance Not Sufficient");
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+}
+package com.zieta.thread;
+
+public class ParentThread extends Thread {
+	private JointAccount account;
+	public ParentThread(JointAccount account) {
+		this.account = account;
+		start();
+	}
+	public void run() {
+		account.withdraw(5000);
+	}
+}
+package com.zieta.thread;
+
+public class ChildThread extends Thread{
+	private JointAccount account;
+	public ChildThread(JointAccount account) {
+		this.account = account;
+		start();
+	}
+	public void run() {
+		account.withdraw(5000);
+	}
+}
+package com.zieta.thread;
+
+public class TestParentChild {
+
+	public static void main(String[] args) {
+		JointAccount account = new JointAccount(10000);
+		ParentThread parent = new ParentThread(account);
+		ChildThread child = new ChildThread(account);
+
+	}
+
+}
+
+Output with Synchronization:
+Balance Before = 10000.0
+Balance After = 5000.0
+Balance Before = 5000.0
+Balance After = 0.0
+Output without Synchronization:
+Balance Before = 10000.0
+Balance Before = 10000.0
+Balance After = 0.0
+Balance After = 0.0
+================================================
+	Daemon Thread:
+	It is low priority thread which is used to provide services to
+other threads.
+We have many standard damon threds such as
+garbage collector,finilizer
+So deamon threds are running at background and get automatically deleted
+as other threads are get deleted from memory. Here JVM will terminate daemon 
+thread.
+
+
+Creatinf Thread as Daemon thread:
+Here to do this we can use setdaemon(boolean) method .
+If we specify boolean value as true then your normal thread becomes daemon Thread.
+
+To check thread is daemon or not we can use method boolean isDaemon();
+
+public class MyThread extends Thread{
+	public void run() {
+		System.out.println("In run method");
+		System.out.println(isDaemon());
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

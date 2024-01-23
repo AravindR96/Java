@@ -1,0 +1,122 @@
+
+	Call by Value: 
+	Call by reference:
+
+	Call by Value:
+
+
+	public void addition(int num1 , int num2){
+
+
+	}
+
+
+	obj.addition(10,20);//Call by value
+
+	int num1 = 10;
+	int num2 = 20;
+
+	obj.addition(num1,num2);//call by value
+
+==============================================
+
+	Array itself is consider as Object.
+
+	emp.name = "Ram";
+
+	int num[] = {10,20,30};
+
+	sop(num.length);//3
+
+
+	What is class for array??
+
+	From Which class array is created???
+
+		Class c = num.getClass();
+		String s = c.getName();
+		System.out.println(s);
+
+
+		o/p: [I
+===================================
+Can method return array??
+Yes
+
+	public int[] getArray(){
+		int num[] = new int[]{10,20,30};
+		return num;
+	}
+
+=====================================================
+
+	Array Of Object??
+
+Employee emp[]; //Declaration
+
+emp = new Employee[5];//Allocate memory for array
+
+emp[0] = new Employee();//Allocate seperate memory for each element to store record
+
+emp[1] = new Employee();
+emp[2] = new Employee();
+emp[3] = new Employee();
+emp[4] = new Employee();
+
+emp[0].empId = 101;
+emp[0].name = "Ram";
+emp[0].salary = 60;
+
+emp[1].empId = 102;
+emp[1].name = "Jam";
+emp[1].salary = 75;
+
+emp[2].empId = 103;
+emp[2].name = "Sham";
+emp[2].salary = 65;
+so on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

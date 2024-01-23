@@ -1,0 +1,130 @@
+
+Association: It is nothing but relationship between classes.	
+
+	1. IS-A Relationship:
+		-Inheritance: Parent Child relationship
+		Person ----IS-A  Employee
+
+			    IS-A Student
+	
+	2. HAS-A Relationship:
+		-Aggrigation: Both classes have poosely coupled relationship
+		Employee-----HAS-A-----Department
+		Person----HAS-A ---Mobile
+		class Department{
+			private int deptId;
+			private String deptName;
+
+		}
+
+		class Employee{
+			private int empId;
+			private String empName;
+			private double salary;
+			private Department dept;
+			public Employee(Department dept){
+				this.dept = dept;	
+			}
+			//setter
+			//getter
+		}
+		Object creation logic is not tightly coupled
+		Department dept1 = new Department(101,"Developmet");
+		Department dept2 = new Department(102,"Testing");
+		Employee emp1 = new Employee(dept1);
+		Employee emp2 = new Employee(dept1);
+
+		-Composition: Tightly Coupled relation
+		Customer-----HAS-A-----Account
+		Human------HAS-A---Body
+		class Account{
+			private int accountNumber;
+			private double balance;
+			
+		}
+		class Customer{
+			private int cId;
+			private String name;
+			private Account account;
+			public Customer(){
+				account = new Account();
+			}
+	
+		}
+
+	Customer c1 = new Customer();
+	Customer c2 = new Customer();
+
+	toString()---> It used to return String representation of objects.
+		It is automatically called when we try to display object directly
+
+	Inheritance:
+	It is used to represent IS-A kind of relationship.
+	It is very important oops concept.
+
+	Inheritance is mechanism in which object of one class can acquire
+the properties of object of other class.
+In other words we can say parent child relationship between classes is
+nothing but inheritance. Where child class inherits or acquires the properties 
+of parent class. Hierarchical representation of classes is also nothing but
+inheritance.
+
+Inthis parent class also called as Base class or super class.
+ and Child class also called as derived class or sub class.
+
+It is very important cocept used to acieve two things
+1. Reusability
+2. Extensibility 
+
+In java it is implemented using extends keyword
+
+	Person-----Is-A   Employee
+
+class Person{
+	protected long adhar;
+	protected String name;
+	protected String address;
+	//Getter
+	//Setter
+}
+
+class Employee extends Person{
+	private int empId;
+	private double salary;
+
+}
+//Parent class members should be declared as protected not private
+
+
+	A  ----IS-A--- B
+
+	class A{
+
+	}
+
+	class B extends A{
+
+
+	}
+
+Here B class is child class and A is Parent class.
+
+With this by using object of Child class we can invoke members of Parent class
+but using object Parent class we can't invoke members of Child class.
+
+Only public protected and default members of parent class can be accessed 
+by using Child class object.
+That simply means private members of parent class are not available for
+inheritance. 
+
+
+
+
+
+
+
+
+
+
+
+

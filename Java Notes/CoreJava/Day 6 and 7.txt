@@ -1,0 +1,382 @@
+
+	Constructor:
+
+	It is special member function or method of class.
+	It is special because name of constructor is similler with name of class.
+	Constructor never returns value hence we does not specify return type to it
+	Even we does not speciy void as return type.
+	Constructor can be public or private.
+
+	Constructor is called automatically ie implicitely as we create object of 
+	of class.
+	Hence constructor is called only once in life of perticulare object.
+
+	Why?
+	Constructor is used to initilize the data members of class.
+	The code which have to executed only once have to put inside the 
+	constructor.
+
+	class ClassName{
+		public ClassName(){
+			//Constructor body
+		}
+	}
+
+	class Student{
+		private int rollno;
+		private String name;
+		private double per;
+		public Student(){
+			sop("Within Non parameterised Constructor");
+			rollno = 0;
+			name = null;
+			per = 0.0;
+		}
+		public Student(int rollno, String name, double per){
+			sop("Within Parametrised Constructor");
+			this.rollno = rollno;
+			this.name = name;
+			this.per = per;
+		}
+
+	}
+
+
+	For Class if we have not written any constructor then compiler creates its own 
+constructor and initilize member by 0 or null or 0.0
+Such compler generated constructor is called as default constructor
+
+Types Of Constructors:
+
+1. Non-parameterised 
+Non parameterised constructor also called as default constructor if it assign default
+values to data members
+2. Parameterised 
+If we specify parameters to the constructor
+So while creating object of class we need to pass parameter values
+
+	Constructor Overloading:
+
+Like method overloading
+If we write more than one constructor having different signature within class
+then mechanism is called as constructor overloading and constructors are called as
+overloaded constructors.
+It is used to improve readibility of code.
+It is also used to achieve compile time polymorphism since
+call to the overloaded constructor is resolved at compile time.
+Here different signature means number of parameters,data type of parameter or sequence of parameter
+must be unique or different.
+
+public class Student {
+	private int rollno;
+	private String name;
+	private double per;
+	public Student(){
+		System.out.println("Within Constructor");
+	}
+	public Student(int rollno, String name, double per){
+		System.out.println("Within Parametrised Constructor");
+		this.rollno = rollno;
+		this.name = name;
+		this.per = per;
+	}
+	public Student(int rollno, String name){
+		System.out.println("Within Parametrised Constructor");
+		this.rollno = rollno;
+		this.name = name;
+		this.per = per;
+	}
+
+	public Student(int rollno, double per, String name){
+		System.out.println("Within Parametrised Constructor");
+		this.rollno = rollno;
+		this.name = name;
+		this.per = per;
+	}
+}
+
+
+	this keyword:
+	It represent current invoking object that means the object because 
+of which execution control comes to method or constructor.
+It is alies or alternative name to current invoking object.
+Whenever we have conflict between local variable and instance variable then we use
+this keyword.
+
+Can we call more than one constructor for single object???
+
+Answer is Yes,we can call more than one constructor for single object.
+
+If Yes,then how?
+
+Using this keyword.
+
+public class Employee{
+	public Employee() {
+		this(103);
+		System.out.println("In non parameterised constructor");
+	}
+	public Employee(int empId) {
+		this(103,"Jam");
+		System.out.println("In parameterised constructor with one");
+	}
+	public Employee(int empId,String name) {
+		
+		System.out.println("In parameterised constructor with two");
+	}
+}
+
+===========================================================
+
+	Array:
+
+It is collection of elements having same type stored in contigous memory location.
+It is used to store multiple elements under single variable name.
+Array index start from zero hence last element index is n-1 where n is size of array.
+
+Java Array is more dynamic in nature because we dont need to specify size in advance
+at compilation time. We can specify size at run time so it avoids wastage or shortage of memory.
+
+We cant change size once memory get allocated. Hence in future if we have deleted elements
+or we need to more element than size it is not possible. Because of this it can lead
+wastage or shortage of memory. In java we have collection framework used to 
+overcome this problem of Array.
+
+Types of array:
+1. One Dimensional array(1-D):
+2. Two Dimensional array(2-D):
+3. Multi Dimensional array(m-D):
+4. Jagged Array
+
+	One Dimensional Array(1-D):
+
+Steps of using 1-D Array:
+
+Step 1: Declaration of Array:
+
+	<Data Types> arrayName[];
+
+	int num[]; 
+When we declare array actual memory to store elements will be not get allocated
+It allocate memory in stack to store array reference.
+
+Step 2: Memory allocation
+To allocate memory for array we need to use new keyword. So It allocate memory in
+heap.
+
+	arrayName = new <Data Type>[Size];
+
+	num = new int[5];
+
+Step 3: Step 1 and Step 2 can be done together.
+	Declaration with Memory allocation.
+	int num[] = new int[500];
+
+
+Step 4: Assign element values in array.Or Accessing elements
+To access elemnts of array we use array name with index.
+	num[0] = 10;
+	num[1] = 20;
+	num[2] = 30;
+	num[3] = 40;
+	num[4] = 50;
+	num[5] = 60;//Throw Error ie Exception ArrayIndexOutOfBoundsException
+
+	for(int i = 0; i < num.length;i++){
+		sop(num[i]);
+	}
+
+
+Step 5: Declaration with Initilization
+
+	int num[] = {10,20,30,40,50};
+		     0   1  2   3
+		OR
+	int num[] = new int[]{10,20,30,40};
+			      0   1  2  3
+
+Advanced for loop:Its used with array and collection only
+
+	for(<Data Type> varName:arrayORcollection){
+		sop(vanName);
+	}
+
+	for(int value:num){
+		sop(value);
+	}
+
+
+Getting Input From User:
+public class MyArray3 {
+	 
+	public static void main(String[] args) {
+		int num[];
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		num = new int[n];
+		for(int i = 0; i < n; i++) {
+			num[i] = sc.nextInt();
+		}
+		
+		//Display
+		for(int value:num) {
+			System.out.println(value);
+		}
+
+	}
+
+}
+
+=================================================
+
+Can we write array as data member of class:
+
+YES
+class Employee{
+	private int empId;
+	private String name;
+	private double salary;
+	private String languages[];//Array as data member
+
+	public Employee(){
+		Scanner sc = new Scanner(System.in);
+		sop("Enter the empId,name,salary");
+		empId = sc.nextInt();
+		name = sc.next();
+		salary = sc.nextDouble();
+		sop("How many languages");
+		int n = sc.nextInt();
+		languages = new String[n];
+		for(int i = 0;i<n;i++){
+			Sop("Enter language");
+			languages[i] = sc.next();
+		}
+		
+	}
+
+}
+
+
+
+	Array is fixed length
+
+	ie As memory is get allocated we cant change size.
+
+	int num[] = new int[5];
+	num[0] = 10;
+	num[1] = 20;
+	num[2] = 30;
+	num[3] = 40;
+	num[4] = 50;
+
+
+=============================================
+
+Can we pass array as method argument????
+Yes, It can be pass like normal variable.
+public class TestArrayAsArgument {
+
+	public static void main(String[] args) {
+		int num[] = {10,20,30,40};
+		ArrayAsArgument obj = new ArrayAsArgument();
+		int sum = obj.addElements(num);
+		System.out.println(sum);
+		
+		System.out.println(obj.addElements(new int[] {1,2,3,4}));
+	}
+
+}
+public class ArrayAsArgument {
+	public int addElements(int num[]) {
+		int sum = 0;
+		for(int value:num) {
+			sum = sum + value;
+		}
+		return sum;
+	}
+}
+======================================================
+
+Array will always goes as reference to method
+
+Call by value---> If we pass normal variable to methods then it will pass as 
+call by value. That is values changed in method will not affect in calling method
+
+
+Call by Reference: Array or any object if we pass to method it will pass as
+reference.That is if we change any value then it will affect in calling method.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

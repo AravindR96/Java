@@ -1,0 +1,201 @@
+	JSP:
+
+JSP Stands for Java/Jakarta Server Pages.
+It is used to create dynamic web pages like servlet.
+It is extension to servlet as it have cocepts like customtags,jstl etc.
+By using jsp presentation logic and business logic will be get separated.
+Jsp page is combination of HTML,Java
+It is like html just saved with .jsp extension.
+Writing JSP is easy than servlet as less code required.
+No need to recompile.
+
+JSP page will be translated to Servlet by JSP translator and then followed 
+servlet life cycle.
+JSP translator is component of web container which is used to maintain jsp
+life cycle.
+
+	jsp life cycle:
+JSP Follows specific life cycle. Life cycle of jsp will be followed
+container.
+
+Through Methods:
+
+	jspInit()----->Initilization 
+
+	_jspService()------> Business Logic 
+
+
+	jspDestroy()------> Deallocation/shutdown
+
+
+Through Phases:
+home.jsp
+
+1. JSP Translation Phase:
+In this JSP is translated to Servlet. That smply means JSP file is converted by container
+into Servlet. When first time JSP page is invoked or there is change in JSP
+page it will be translated to sevlet.Here .jsp is converted to .java
+home.java
+
+2.JSP Compilation Phase:
+Generated .java file is compiled and .class file is get created.
+home.class
+
+3. JSP Class Loading Phase:
+The .class file is get loaded into container.
+
+4. JSP Instantiation Phase:
+Object of Generated Servlet is created in this phase.Here object is created by container.
+
+5. JSP Initilization:
+	In this phase execution of jspInit(). Initilization needed to jsp is get done
+in this phase.
+
+6. JSP Service Phase: 
+In this phase actual request processing is done. In this _jspService() method execution is get happened.
+This method can be called for many times for every request. So the business logic
+is get exected in this phase.
+
+7. JSP Destruction Phase:
+It is last phase of jsp life cycle. It is used to release the resources used
+by jsp.
+	jspDestroy()  method execution is happened.
+	JSP = <HTML,JAVA,JSP Elements>
+
+		Elements Of JSP:
+
+A.JSP Scripting Elements: There are three scripting elements.
+
+1. <scriptlet>: It is used to write java code.
+
+	<jsp:scriptlet>
+		//Java Code
+
+	</jsp:scriptlet>
+
+		OR
+	<%
+
+
+		//Java Code
+
+
+	%>
+
+2. Declaration: It is used to declare variables or methods
+
+	<%!
+
+		//Variable or method Declaration
+
+
+	%>
+
+
+3. Expression: 
+
+	It evaluate expression and display output on browser.
+
+	<%= expression>
+
+	<%= 10+20>
+
+We can write any number of expression tags on jsp.
+But one tag should contain only one expression.
+
+
+	JSP Directives:
+
+These are instructions given to the container for translating JSP into Servlet.
+There are three directives.
+These instructions will be given at translation time.
+1. page directive
+2. include directive
+3. taglib directive
+
+Sysntax:
+
+	<%@ directiveName attribute1=value1 attribute2=value2 ...>
+
+	ex. <%@ page import="java.util.*">
+
+	    <%@ inclue >
+
+		<%@ taglib >
+
+1. Page Directive:
+The attributes specified to page directive will be applicable to entire jsp
+page.
+
+import---> It is used to import java packages.
+contentType--->It is used to specify MIME Type
+extends--->It is to specify parent class for container generated java class
+session--->It is used to enable or desable session tracking on JSP. If we specify
+session value as true it will create session
+
+<%@ page session = "true">
+
+errorPage---> It is used to specify error page ie the page which should be
+get executed when some error or exeception get occur on jsp page.
+
+<%@ page errorPage="error.jsp">
+----
+----
+----
+
+isErrorPage: It is used in error page to specify that this page will 
+acts as error page.
+
+<%@ page isErrorPage="true">
+----
+----Something goes Wrong
+---
+
+Session Tracking in JSP:
+
+In JSP session is implicit object. We dont need to create this object just we can use it to set or to get 
+attribute.
+
+With that we just have to use session = true in page directive
+
+
+home1.html ------->myjsp1.jsp----------------.myjsp2.jsp
+
+User
+NiteenSir--------Welcome NiteenSir------------>Welcome Again NiteenSir on Myjsp2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

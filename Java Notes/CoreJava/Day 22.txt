@@ -1,0 +1,189 @@
+
+	File Input Output
+	java.io
+	ByteStream
+	CharacterStream
+	Searilization and Deserialization
+
+
+	What is File?
+
+	File is collection records or data store permanantly on HD.
+	.txt file,.java file, .docs file, .json file,.xml file.
+
+	Java have the ability to create any type of file and can perform 
+ 	various operations on that file
+	such as reading, writing or appending operation.
+	Mechanism used to perform all these operations on file is nothing 
+but file handling. To perform file handling java provided package java.io
+which provides variaous classes and interfaces.
+FileInputStream FileOutStream, FileReader,FileWriter etc
+
+	INPUT AND OUTPUT OPERATION
+
+Stream: It is sequence of data.It is like stream of water.So it is stream of data.
+It is used when we are tranfereing data from source to destination.
+This stream contains sequence of bytes.
+
+
+	Source---->1010110011100----->File
+
+Stream can input stream or output stream.
+
+InputStream-> In reading the data
+OutputStream-> writing the data
+
+1.Byte Stream: Data will be represented as sequence of bytes ie 0 and 1
+	FileInputStream
+	FileOutputStream etc.
+	
+	ObjectInputStream
+	ObjectOutputStream
+
+2.Character Stream:Data will be represented as sequence of character
+	FileReader
+	FileWriter
+
+
+	File is class:
+
+	File f = new File("filename with path");
+	File f = new File("information.txt");
+	
+Methods:
+1. boolean isFile(): It is used to check weather specified name is
+file or not. If yes it returns true else it returns false.
+
+2. boolean isDirectory(): It is used to check weather specified name is 
+directory/folder or not. If it is folder it returns true else false.
+
+3. boolean exists(): It is used to check weather specifed file is exist or not.
+if it is exists it returns true else it returns false.
+
+	if(f.exists() && f.isFile()){
+		//Operation
+	}else{
+
+		//not exists or not file
+	}
+
+
+4. String[] list(): It returns names of all files and sub folders present in
+specified folder.
+
+		String name[] = f.list();
+
+		niteenSir
+			family.txt	0
+			profile.docs	1
+			java Video	2
+			java notes	3
+==========================================================
+
+Read Operation:
+Getting data from file is nothing but read operation.
+Following are the Steps:
+
+1. File f = new File("File Name with path");
+
+2. FileInputStream fin = new FileInputStream(f);
+It opens file in read mode if exists. 
+If file open file cursor points to the begining of file.
+
+Methods:
+1. int read(): It reads character UNICODE value where cursor is currently 
+present. And cursor automatically moves to next character.
+If file end occur it return -1
+
+
+	while(true){
+		int i = fin.read();
+		if(i == -1){
+			break;
+		}
+		sop((char)i);
+	
+	}
+
+Welcome
+
+2. Write Operation: Adding data into file is nothing but write operation.
+Follwing are the steps:
+
+1. Use File class
+	File f = new File("file name with path");
+
+2. FileOutputStream fout = new FileOutputStream(f);
+It is used to open file in write mode.
+As file is exists it will overide the content.
+If file is not exists it creates new file.
+
+If we dont wants to override the content or delete previous contet then we can
+open file in append mode.
+
+FileOutputStream fout = new FileOutputStream(f,true);//Append
+
+Methods:
+1.void close(): It is available to InputStream as well as output stream
+It is used to close streams
+		fin.close();
+		fout.close();
+
+2. void write(int): It is used to add character into file where file cursor
+is present,as character is get added cursor automatically goes to next position.
+
+	fout.write(i);
+
+	Copy the content from file to another
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

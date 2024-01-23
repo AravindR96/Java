@@ -1,0 +1,170 @@
+//Day 2
+
+OOPS-->Object Oriented Programming System.
+Object
+Class
+Encapsulation
+Abstraction
+Inheritance
+Polymorphism
+Late Binding/ Dynamic Binding
+Message Passing
+
+	1. Object:Its a real world entity which is exist and can be defined.
+	Every object has
+		Attributes/Properties
+		Behaviour
+		Identity
+	Employee:
+		empId,name,salary etc
+		getSalary(),getProject(),submitProject(), etc
+		empId
+	Flower:
+		name,color,size,price etc
+		smell()
+		barcode
+	Account:
+		acno,name,balance,branch,bank etc
+		deposit(),withdraw(),tranfer(),enquery() etc
+		acno
+
+	Class:
+Class is blueprint of object.
+Its group of object
+Its raw structure of object.
+
+	It is user defined data type which serve as template for creating
+multiple objects having similler type. Class is used to create object.
+All objects created from class wil have same structure.
+
+	Bricks--->
+
+	Ganapati--->
+
+	class ClassName{
+		//data members or properties or Instance variables
+		//Methods / function
+
+	}
+	//Declaration of Class:
+	class Employee{
+		//Data Members
+		int empId;
+		String name;
+		double salary;
+		//Methods
+		public void display(){
+			//logic
+		}
+		
+
+	}
+
+	When we declare class actual memoery to store the data is not allocated.
+	Memory is allocated when we create object of class.
+
+	Creating Object of Class:
+		To create object we have to use className and new keyword.
+		As we create object of class it allocate the memory for data
+		members only not for methods.
+		Memory for methods will be allocated at run time when we invoke
+		or call method.
+	Declaration with Memory Allocation:
+	ClassName objName = new ClassName();
+	Employee emp1 = new Employee();
+
+		OR
+
+	Employee emp1;//Declaration
+	emp1 = new Employee();//Memory Allocation
+
+	One Object can store only one value/Record at a time.
+To store multiple records we need to create multiple objects.
+
+
+	Instance Variable/ Data Member:
+		Variables inside class but outside method
+
+	Local variables:
+	Variables declare inside method/block are called as local variables
+	Memory for local variables will not allocated in heap
+	It always allocate inside stack
+
+	Methods:
+
+	<AccessModifier> <ReturnType> methodName(){
+
+
+	}
+
+	public void display(){
+		---
+		---
+		---
+	}
+void--->It means method is not returning any value.
+To execute methods we have to call or invoke by using Object of Class
+
+	emp1.display();
+	objName.methodName();
+	emp2.display();
+
+Accessing Data Members:
+We need to use objectname with memberName outside the class
+
+emp1.empId = 101;
+emp1.name = "Ram";
+emp1.salary = 60;
+
+emp2.empId = 102;
+emp2.name = "Jam";
+emp2.salary = 75;
+
+emp3.empId = 103;
+emp3.name = "Sham";
+emp3.salary = 65;
+
+Within class no need to use object we can access directly
+Values will decided by invoking object.
+public void display(){
+		sop(empId);
+		SOP(name);
+		sop(salary);
+}
+
+emp1.display();
+emp2.display();
+emp3.display();
+emp4.display();
+
+
+
+
+			Thank You
+			Enjoy Codding
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
